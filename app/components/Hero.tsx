@@ -1,0 +1,27 @@
+'use client'
+import { Github, Linkedin } from "lucide-react";
+import UserName from "./Hero/UserName";
+import UserDescription from "./Job/JobDescription";
+
+import HeroDescription from "./Hero/HeroContainer";
+import HeroPhoto from "./Hero/HeroPhoto";
+import CarrerContainer from "./Carrer/CarrerContainer";
+export default function Hero() {
+  return (
+    <>
+
+      <div className="rounded  p-5 max-w-[500px] min-w-[400px]">
+        <div className="bg-[#f6f5f1] p-5 rounded-xl" >
+          <section
+            className="relative  flex items-center pt-10 pb-10 ">
+            <a href="#about"></a>
+            <HeroDescription></HeroDescription>
+          </section>
+          <CarrerContainer></CarrerContainer>
+          <CarrerContainer></CarrerContainer>
+        </div>
+      </div>
+
+    </>
+  );
+};
