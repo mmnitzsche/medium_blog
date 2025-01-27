@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HeroPhoto() {
+export default function UserPhoto() {
     return (
         <>
             <img

@@ -1,6 +1,7 @@
 import { projects } from "@/data/projectsData";
 import { technology } from "@/data/TecnologiesData";
 import { useState } from "react";
+import TopicTittle from "./Hero/TopicTittle";
 
 const Projects = () => {
   const [filter, setFilter] = useState<string | null>(null);
@@ -16,15 +17,17 @@ const Projects = () => {
     <section className="py-20 px-6 bg-background" id="projects">
       <div className="container mx-auto space-y-12">
         <div className="space-y-4 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold">Projects</h2>
+          <TopicTittle
+            TopicName="Projetos"
+          ></TopicTittle>
           <div className="flex flex-wrap gap-2">
             {uniqueTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setFilter(filter === tag ? null : tag)}
-                className={`px-2 py-2 rounded-full text-sm transition-all  ${filter === tag
-                    ? "outline outline-2 outline-primary text-primary-foreground"
-                    : "outline-none hover:outline hover:outline-2 hover:outline-gray-300"
+                className={`px-2 py-2 rounded-full text-md transition-all font-semibold text-slate-800 ${filter === tag
+                  ? "outline outline-2 outline-primary text-primary-foreground"
+                  : "outline-none hover:outline hover:outline-2 hover:outline-gray-300"
                   }`}
               >
                 {tag}
@@ -33,11 +36,11 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6 transition-all">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#f2f2f2] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+              className="group p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#f2f2f2] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in "
             >
               <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
               <p className="text-muted-foreground mb-4">{project.description}</p>
@@ -45,7 +48,7 @@ const Projects = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs text-white rounded-full bg-secondary"
+                    className="transition-all px-3 py-1 text-xs text-white rounded-full bg-secondary"
                   >
                     {tag}
                   </span>

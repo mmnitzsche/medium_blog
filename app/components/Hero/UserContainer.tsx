@@ -1,14 +1,14 @@
 import React from 'react';
 import UserName from './UserName';
-import UserDescription from '../Job/JobDescription';
 import LinkIcon from './LinkIcon';
 import { LinksJson } from './LinkIconJson';
 import UserRole from './UserRole';
-import HeroPhoto from './HeroPhoto';
+import UserPhoto from './UserPhoto';
 import TopicTittle from './TopicTittle';
-import HeroDescription from './HeroDescription';
+import UserDescription from './UserDescription';
+import GroupDescription from '../Job/JobDescription';
 
-export default function HeroContainer() {
+export default function UserContainer() {
     return (
         <>
             <div>
@@ -25,14 +25,14 @@ export default function HeroContainer() {
                         </div>
                     </div>
                     <div className=' w-28 md:w-32'>
-                        <HeroPhoto></HeroPhoto>
+                        <UserPhoto></UserPhoto>
                     </div>
                 </div>
                 <div
                     className='pt-2'>
                     <UserRole></UserRole>
                 </div>
-                <HeroDescription/>
+                <UserDescription />
             </div >
         </>
     );

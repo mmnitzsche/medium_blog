@@ -2,9 +2,9 @@ import React from 'react';
 import UserName from '../Hero/UserName';
 import JobDescription from '../Job/JobDescription';
 
-import JobTittle from './JobTittle';
-import CompanyName from './CompanyName';
-import JobPeriod from './JobPeriod';
+import JobTittle from './GroupTittle';
+import CompanyName from './GroupName';
+import JobPeriod from './GroupPeriod';
 import { jobs } from '@/data/blogData';
 import TopicTittle from '../Hero/TopicTittle';
 
@@ -17,17 +17,17 @@ export default function CarrerContainer() {
              />
             {jobs.map(({ id, companyName, companySite, description, startPeriod, endPeriod, jobRole }) => (
                 <div key={id} className='pb-5'>
-                    <CompanyName CompanyName={companyName} CompanySite={companySite} />
+                    <CompanyName GroupName={companyName} GroupSite={companySite} />
                     <div className='flex space-x-2'>
                         <JobTittle
-                            jobRole={jobRole}
+                            groupRole={jobRole}
                         />
                     </div>
                     <JobPeriod
                         startPeriod={startPeriod}
                         endPeriod={endPeriod}
                     />
-                    <JobDescription FullText={description} ShortText={description} />
+                    <JobDescription FullText={description}  />
                 </div>
             ))}
         </div>

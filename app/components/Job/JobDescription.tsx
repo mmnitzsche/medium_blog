@@ -4,7 +4,7 @@ interface Props {
   FullText: string;
 }
 
-export default function JobDescription(props: Props) {
+export default function GroupDescription(props: Props) {
   const fullText = props.FullText;
   const firstDotIndex = fullText.indexOf(".") + 1;
   const shortText = fullText.slice(0, firstDotIndex);
@@ -67,12 +67,22 @@ export default function JobDescription(props: Props) {
         style={{
           maxHeight: isExpanded ? `${contentHeight}px` : "60px",
         }}
-        ref={contentRef}
-      >
+        ref={contentRef}>
         <p className="text-sm">{shortText}</p>
       </div>
     </div>
   );
 
-  return <>{isMobile ? <SmallSizeState /> : <LargeSizeState />}</>;
+  return (
+    <>
+      {props.FullText === "" ? (
+        <div></div>
+      ) : isMobile ? (
+        <SmallSizeState />
+      ) : (
+        <LargeSizeState />
+      )}
+    </>
+  );
+
 }

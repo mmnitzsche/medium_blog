@@ -1,19 +1,19 @@
 import React from 'react';
 
 interface props {
-    CompanyName: String
-    CompanySite: any
+    GroupName: String
+    GroupSite: any
 }
 
-export default function CompanyName(props: props) {
+export default function GroupName(props: props) {
 
     return (
         <>
             <div className='w-fit'>
-                <a href={props.CompanySite}>
+                <a href={props.GroupSite}>
                     <h1
                         className="text-md font-bold tracking-tight underline w-fit">
-                        {props.CompanyName}
+                        {props.GroupName}
                     </h1>
                 </a>
             </div>
