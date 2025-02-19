@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { parse } from 'rss-to-json';
 
-export default async function Page() {
+export default async function MediumFeed3() {
 
     const [linkValue, setlinkValue] = useState("")
     const PublishIndex = 1;

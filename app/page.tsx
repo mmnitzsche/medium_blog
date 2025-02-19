@@ -7,8 +7,6 @@ export default function page() {
 
   const [isMobile, setIsMobile] = useState(false);
 
-
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1000);

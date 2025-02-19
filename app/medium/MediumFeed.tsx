@@ -1,8 +1,9 @@
+'use client'
 import React from 'react';
 import { parse } from 'rss-to-json';
 
-export default async function Page() {
-    const PublishIndex = 1
+export default async function MediumFeed() {
+    const PublishIndex = 0
     const res = await parse('https://medium.com/feed/@mateusnit');
     const PublishContent = res.items[PublishIndex].content; // No need to stringify here
     const PublishTitle = res.items[PublishIndex].title;
@@ -16,7 +17,7 @@ export default async function Page() {
                 <h2>{PublishLink}</h2> {/* Display the post title */}
                 <p>.</p> {/* Display the post title */}
                 <p>.</p> {/* Display the post title */}
-                
+
                 <div dangerouslySetInnerHTML={{ __html: PublishContent }} /> {/* Render HTML content */}
             </div>
         </>
