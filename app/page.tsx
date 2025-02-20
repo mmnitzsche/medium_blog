@@ -1,7 +1,8 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
+import Projects from './components/ProjectsOLD';
+import Projects2 from './components/Projects2';
 
 export default function page() {
 
@@ -25,7 +26,8 @@ export default function page() {
     return (
       <div
         className='flex'>
-        <Projects />
+        {/* <Projects /> */}
+        <Projects2></Projects2>
         <Hero />
       </div>
     )
@@ -35,7 +37,8 @@ export default function page() {
     return (
       <div
       >
-        <Projects />
+        {/* <Projects /> */}
+        <Projects2></Projects2>
         <div
           className='flex items-center justify-center w-full'>
           <Hero />

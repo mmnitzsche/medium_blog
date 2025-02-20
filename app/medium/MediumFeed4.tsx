@@ -1,8 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 
-import { GetMediumPostIndex } from '../utils/MediumPostIndex';
-import GetMediumFeed from '../utils/MediumFeed';
+import { GetMediumPostIndex } from '../../utils/MediumPostIndex';
+import GetMediumFeed from '../../utils/MediumFeed';
 import { LinksJson } from '../components/Hero/LinkIconJson';
 
 

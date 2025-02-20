@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import GetMediumFeed from './app/utils/MediumFeed';
+import GetMediumFeed from './utils/MediumFeed';
 
 // Função middleware que será chamada em cada requisição
 export async function middleware(request: NextRequest) {
