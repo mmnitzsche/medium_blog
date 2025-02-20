@@ -1,62 +1,64 @@
+import { UsePostApi } from "@/app/hooks/usePostApi"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import PublishedContainer from "../Projects/Published/PublishedContainer"
+import { ExternalLink } from "lucide-react"
 
 interface props {
+    Posts: any
     Component: React.ReactNode
+    Index?: number
 }
 
 export function PostDialog(props: props) {
+    const Posts = props.Posts;
+    const postIndex = props.Index ?? 0;
+    const Link = Posts[postIndex]?.id;
+    const Title = Posts[postIndex]?.title;
+    const PostDate = Posts[postIndex]?.published;
+    const Content = Posts[postIndex]?.content;
+
     return (
-        <Dialog>
-            <DialogTrigger asChild>                
-                <div>
-                    {props.Component}
-                </div>
+        <Dialog
+
+        >
+            <DialogTrigger asChild>
+                {props.Component}
             </DialogTrigger>
-            <DialogContent className="w-[1000px] max-h-[90vh] overflow-y-auto">
+            <DialogContent
+                className="w-full h-[90vh] overflow-y-scroll scrollbar-hide">
                 <DialogHeader>
-                    <DialogTitle>Edit profile</DialogTitle>
+                    <div className="flex items-center ">
+                        {Link && (
+                            <a
+                                href={Link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-slate-500 flex items-center gap-1 hover:underline pr-4 hover:text-primary"
+                            >
+                                <ExternalLink size={18} />
+                            </a>
+                        )}
+                        <DialogTitle>
+                            {Title}
+                        </DialogTitle>
+                    </div>
                     <DialogDescription>
-                        Make changes to your profildsadsad
-                        asdaddsadsaddddddddddddddddddde here. Click save when you're done.
+                        <PublishedContainer PublishedDate={PostDate} />
                     </DialogDescription>
                 </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Name
-                        </Label>
-                        <Input
-                            id="name"
-                            defaultValue="Pedro Duarte"
-                            className="col-span-3"
-                        />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Username
-                        </Label>
-                        <Input
-                            id="username"
-                            defaultValue="@peduarte"
-                            className="col-span-3"
-                        />
-                    </div>
-                </div>
-                <DialogFooter>
-                    <Button type="submit">Save changes</Button>
-                </DialogFooter>
+                <div
+                    className="text-muted-foreground mb-4"
+                    dangerouslySetInnerHTML={{ __html: Content }}
+                />
             </DialogContent>
         </Dialog>
-    )
+    );
 }

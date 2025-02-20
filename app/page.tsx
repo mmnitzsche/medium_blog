@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
 import Projects from './components/ProjectsOLD';
 import Projects2 from './components/Projects2';
+import ProjectsContainer from './components/Projects/ProjectContainer/ProjectsContainer';
+
 
 export default function page() {
 
@@ -26,19 +28,21 @@ export default function page() {
     return (
       <div
         className='flex'>
-        {/* <Projects /> */}
-        <Projects2></Projects2>
+        <div className='p-4 w-full'>
+          <ProjectsContainer />
+        </div>
         <Hero />
       </div>
     )
   }
 
+
   function MobilecreenView() {
     return (
-      <div
-      >
-        {/* <Projects /> */}
-        <Projects2></Projects2>
+      <div className=''>
+        <div className='p-4  w-full'>
+          <ProjectsContainer />
+        </div>
         <div
           className='flex items-center justify-center w-full'>
           <Hero />
@@ -54,7 +58,6 @@ export default function page() {
       </>
     )
   }
-
 
   return (
     <>
