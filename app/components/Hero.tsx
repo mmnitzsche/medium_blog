@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <>
 
-      <div className="rounded  p-5 max-w-[500px] min-w-[300px]">
+      <div className="rounded p-5 max-w-[500px] min-w-[300px]">
         <div className="bg-[#f6f5f1] p-5 rounded-xl" >
           <section
             className="relative  flex items-center pt-10 pb-10 ">

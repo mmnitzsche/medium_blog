@@ -1,14 +1,18 @@
-import { MediumFeedUrl } from "@/utils/MediumFeed";
 import { NextResponse } from "next/server";
 import { parse } from "rss-to-json";
 
-export async function GET() {
+export async function GET(req: Request) {
     try {
+        const { searchParams } = new URL(req.url);
+        const feedUrl = searchParams.get("feedUrl");
 
-        const res = await parse(MediumFeedUrl);
+        if (!feedUrl) {
+            return NextResponse.json({ message: "URL do feed não fornecida." }, { status: 400 });
+        }
+
+        const res = await parse(feedUrl);
 
         if (!res.items || res.items.length === 0) {
-            console.warn("Nenhum post encontrado.");
             return NextResponse.json({ message: "Nenhum post encontrado." }, { status: 404 });
         }
 

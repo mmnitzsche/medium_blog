@@ -6,21 +6,24 @@ import ImageFormater from "../MediaFormater/ImageFormater";
 import ContentContainer from "../Content/ContentContainer";
 import CategoryContainer from "../Category/CategoryContainer";
 import PostTitleContainer from "../PostTitle/PostTitleContainer";
-import ProjectHeader from "./ProjectHeader";
-import FilterContainer from "../Filter/FilterContainer";
 import { CategoryValue, PostIndex } from '@/utils/atom'
 import { useAtom } from "jotai";
 import { PostDialog } from "../../Post/PostDialog";
-import { FilterLoader } from "../../Loader/FilterLoader";
 import { PostsLoader } from "../../Loader/PostsLoader";
+import { MediumUserName } from "@/utils/MediumFeed";
+
+interface props {
+    Posts: any
+}
 
 
-export default function ProjectPosts() {
+export default function ProjectPosts(props:props) {
 
     const [filter, setFilter] = useAtom(CategoryValue)
     const [postIndex, setpostIndex] = useAtom(PostIndex)
 
-    const { data: postsRequest } = UsePostApi();
+    // const { data: postsRequest } = UsePostApi(MediumUserName);
+    const postsRequest = props.Posts
 
 
 
@@ -28,7 +31,7 @@ export default function ProjectPosts() {
         return <PostsLoader />
     }
 
-    const dateTest = new Date("2024-02-20")          // ✅ Válido
+    const validateDate = new Date("2024-02-20")          // ✅ Válido
 
 
     const filteredProjects = filter
@@ -56,7 +59,7 @@ export default function ProjectPosts() {
                                 <div onClick={() => HandleClickPost(index)}>
                                     <div className="mb-3">
                                         <PostTitleContainer Title={posts.title} />
-                                        <PublishedContainer PublishedDate={dateTest} />
+                                        <PublishedContainer PublishedDate={validateDate} />
                                     </div>
                                     <ImageFormater Media={posts.content} />
                                     <ContentContainer Content={posts.content} />

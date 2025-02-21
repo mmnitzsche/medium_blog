@@ -5,13 +5,12 @@ import { UsePostApi } from "../../../hooks/usePostApi";
 import ProjectHeader from "./ProjectHeader";
 import FilterContainer from "../Filter/FilterContainer";
 import ProjectPosts from "./ProjectPosts";
-
-
-
+import { MediumUserName } from "@/utils/MediumFeed";
+MediumUserName
 
 export default function ProjectsContainer() {
-  const { data: posts } = UsePostApi();
-  
+  const { data: posts } = UsePostApi(MediumUserName);
+
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function ProjectsContainer() {
             <ProjectHeader />
             <FilterContainer Posts={posts} />
           </div>
-          <ProjectPosts />
+          <ProjectPosts Posts={posts} />
         </div>
       </section>
 

@@ -10,7 +10,7 @@ export default function HeroDescription(props: Props) {
 
   // Lista de tecnologias a serem destacadas
   const technologies = ["Python", "Power BI", "Power Apps", "M Language", "JavaScript", "APIs"];
-  const libs = ["Power BI", "Next.js", "Pandas", "Playwright/Selenium", "DataBricks"];
+  const libs = ["Power BI", "Next.js", "Pandas", "Playwright/Selenium"];
 
   // Função para destacar tecnologias em negrito
   const highlightTechnologies = (text: string, technologies: string[]) => {
@@ -36,10 +36,10 @@ export default function HeroDescription(props: Props) {
   function LibComponent(props: LibProps) {
     return (
       <div
-      className='p-1'
+        className='p-1 '
       >
         <div
-          className="p-1 px-2 bg-[#e4e3e0] text-gray-600 rounded-xl text-sm cursor-default">
+          className="p-1 px-2 bg-[#e4e3e0] text-gray-600 rounded-xl text-sm cursor-default ">
           {props.Lib}
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function HeroDescription(props: Props) {
   return (
     <>
       <div
-        className="text-sm"
+        className="text-sm break-words whitespace-normal"
         dangerouslySetInnerHTML={{ __html: highlightedDescription }}
       />
       <div className="pt-4 font-semibold ">

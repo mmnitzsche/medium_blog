@@ -19,14 +19,29 @@ export function FilterLoader() {
 
     return (
         <>
-            <div>
+
+            <div className="hidden sm:block">
                 <div className="flex">
-                    {Array.from({ length: categoryTags1 }).map((_, index) => (
+                    {Array.from({ length: 3 }).map((_, index) => (
                         <CategoryButton key={index} />
                     ))}
                 </div>
                 <div className="flex">
-                    {Array.from({ length: categoryTags2 }).map((_, index) => (
+                    {Array.from({ length: 3 }).map((_, index) => (
+                        <CategoryButton key={index} />
+                    ))}
+                </div>
+            </div>
+
+
+            <div className="block sm:hidden">
+                <div className="flex">
+                    {Array.from({ length: 2 }).map((_, index) => (
+                        <CategoryButton key={index} />
+                    ))}
+                </div>
+                <div className="flex">
+                    {Array.from({ length: 2 }).map((_, index) => (
                         <CategoryButton key={index} />
                     ))}
                 </div>
