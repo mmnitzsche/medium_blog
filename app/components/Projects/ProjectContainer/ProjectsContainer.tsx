@@ -1,16 +1,9 @@
 'use client'
 
 import { UsePostApi } from "../../../hooks/usePostApi";
-import PublishedContainer from "../Published/PublishedContainer";
-import ImageFormater from "../MediaFormater/ImageFormater";
-import ContentContainer from "../Content/ContentContainer";
-import CategoryContainer from "../Category/CategoryContainer";
-import PostTitleContainer from "../PostTitle/PostTitleContainer";
+
 import ProjectHeader from "./ProjectHeader";
 import FilterContainer from "../Filter/FilterContainer";
-import { CategoryValue, PostIndex } from '@/utils/atom'
-import { useAtom } from "jotai";
-import { PostDialog } from "../../Post/PostDialog";
 import ProjectPosts from "./ProjectPosts";
 
 

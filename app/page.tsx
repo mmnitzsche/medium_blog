@@ -1,8 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
-import Projects from './components/ProjectsOLD';
-import Projects2 from './components/Projects2';
+
 import ProjectsContainer from './components/Projects/ProjectContainer/ProjectsContainer';
 
 

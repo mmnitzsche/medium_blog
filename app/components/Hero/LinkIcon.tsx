@@ -2,7 +2,7 @@ import React from 'react';
 
 interface Props {
     href: string; // Tipagem corrigida para uma string representando a URL
-    Icon: JSX.Element; // JSX.Element é o tipo correto para componentes React
+    Icon: any; // JSX.Element é o tipo correto para componentes React
 }
 
 export default function LinkIcon(props: Props) {

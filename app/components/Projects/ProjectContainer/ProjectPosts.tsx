@@ -43,15 +43,15 @@ export default function ProjectPosts() {
     return (
         <>
             <div
-                className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6 transition-all h-fit w-fit ">
+                className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6 transition-all h-fit w-fit bg-red-200">
                 {filteredProjects.map((posts: any, index: number) => (
                     <PostDialog
+                        key={posts.id}
                         Posts={postsRequest}
                         Index={postIndex}
                         Component=
                         {
                             <div
-                                key={posts.id}
                                 className=" group p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#f2f2f2] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in h-fit cursor-pointer">
                                 <div onClick={() => HandleClickPost(index)}>
                                     <div className="mb-3">

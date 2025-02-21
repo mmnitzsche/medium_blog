@@ -1,5 +1,5 @@
 import React from 'react';
-import UserName from '../Hero/UserName';
+
 import JobDescription from '../Job/JobDescription';
 
 import JobTittle from './GroupTittle';

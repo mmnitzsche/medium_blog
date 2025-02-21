@@ -7,7 +7,7 @@ export const UsePostApi = () => {
 
     const apiUrl = baseURL + "posts"
 
-    const { data, error, isLoading, mutate } = useSWR(apiUrl, fetcher);
+    const { data } = useSWR(apiUrl, fetcher);
 
     const GetRequest = async () => {
         try {

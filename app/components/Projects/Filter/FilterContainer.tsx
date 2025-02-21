@@ -17,13 +17,12 @@ export default function FilterContainer(props: props) {
 
     // Criar um objeto { nomeOriginal: nomeModificado }
     const categoryMap = posts
-        .map(item => item.category)
+        .map((item: { category: string | string[] }) => item.category)  // Tipando explicitamente o item
         .flat()
-        .reduce((acc, category) => {
+        .reduce((acc: Record<string, string>, category: string) => {  // Tipando acc e category
             acc[category] = category.replace(/-/g, " ");
             return acc;
         }, {} as Record<string, string>);
-
     // Pegar apenas os nomes originais únicos
     const uniqueTags = Object.keys(categoryMap);
 

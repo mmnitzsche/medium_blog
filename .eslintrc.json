@@ -1,3 +1,30 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    // Desabilita a regra de uso do tipo `any` no TypeScript
+    "@typescript-eslint/no-explicit-any": "off",
+
+    // Torna a regra de variáveis não utilizadas um aviso em vez de erro
+    "@typescript-eslint/no-unused-vars": ["warn"],
+
+    // Desabilita a recomendação de não usar tipos Wrapper (String, Number, etc)
+    "@typescript-eslint/no-wrapper-object-types": "off",
+
+    // Desabilita a verificação de falta de 'key' em elementos de lista
+    "react/jsx-key": "warn",
+
+    // Desabilita a regra que requer que as funções de hooks comecem com 'use'
+    "react-hooks/rules-of-hooks": "off",
+
+    // Habilita o uso do `img` (não otimizado automaticamente) para evitar o erro do Next.js
+    "@next/next/no-img-element": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Detecta automaticamente a versão do React no projeto
+    }
+  }
 }

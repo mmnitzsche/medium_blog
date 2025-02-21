@@ -1,10 +1,7 @@
 'use client'
 import { Github, Linkedin } from "lucide-react";
-import UserName from "./Hero/UserName";
-import UserDescription from "./Job/JobDescription";
 
 import HeroDescription from "./Hero/UserContainer";
-import HeroPhoto from "./Hero/UserPhoto";
 import CarrerContainer from "./Carrer/CarrerContainer";
 import EducationContainer from "./Education/EducationContainer";
 export default function Hero() {
