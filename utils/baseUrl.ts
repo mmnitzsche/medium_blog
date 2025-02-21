@@ -1,14 +1,15 @@
+
 function DevelopmentState() {
-    const runType = process.env.NODE_ENV;
-    let baseURL = '';
-
+    const runType = process.env.NODE_ENV
     if (runType === "development") {
-        baseURL = 'http://localhost:3000/api/';
-    } else {
-        baseURL = `${window.location.origin}/api/`;
+        let baseURL = 'http://localhost:3000/api/'
+        return baseURL
     }
-
-    return baseURL;
+    else {
+        let baseURL = 'blog-mmnitzsches-projects.vercel.app/api/'
+        return baseURL
+    }
 }
 
-export const baseURL = DevelopmentState();
+export const baseURL = DevelopmentState()
+
