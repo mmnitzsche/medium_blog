@@ -5,12 +5,9 @@ import { UsePostApi } from "../hooks/usePostApi";
 import ProjectHeader from "../components/Projects/ProjectContainer/ProjectHeader";
 import FilterContainer from "../components/Projects/Filter/FilterContainer";
 import ProjectPosts from "../components/Projects/ProjectContainer/ProjectPosts";
-import { MediumUserName } from "@/utils/MediumFeed";
 import PlayGroundCointainer from "../components/PlayGround/PlayGroundCointainer";
 import { MediumPlayGroundUserName } from "@/utils/atom";
 import { useAtom } from "jotai";
-
-
 
 
 
@@ -24,7 +21,7 @@ export default function ProjectsContainer() {
   return (
     <>
       <div
-        className="p-3"
+        className="pt-12 pb-12"
       >
         <div className="container mx-auto space-y-12">
           <div className="space-y-4 animate-fade-in w-full">

@@ -1,6 +1,5 @@
 'use client'
 
-import { UsePostApi } from "../../../hooks/usePostApi";
 import PublishedContainer from "../Published/PublishedContainer";
 import ImageFormater from "../MediaFormater/ImageFormater";
 import ContentContainer from "../Content/ContentContainer";
@@ -10,7 +9,6 @@ import { CategoryValue, PostIndex } from '@/utils/atom'
 import { useAtom } from "jotai";
 import { PostDialog } from "../../Post/PostDialog";
 import { PostsLoader } from "../../Loader/PostsLoader";
-import { MediumUserName } from "@/utils/MediumFeed";
 
 interface props {
     Posts: any

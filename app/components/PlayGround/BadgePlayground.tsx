@@ -2,7 +2,6 @@
 import { CircleUser, Sparkle } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
-import Github from './BadgeGithub';
 
 export default function PlaygroundBadge() {
     const router = useRouter();

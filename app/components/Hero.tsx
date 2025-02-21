@@ -1,6 +1,4 @@
 'use client'
-import { Github, Linkedin } from "lucide-react";
-
 import HeroDescription from "./Hero/UserContainer";
 import CarrerContainer from "./Carrer/CarrerContainer";
 import EducationContainer from "./Education/EducationContainer";

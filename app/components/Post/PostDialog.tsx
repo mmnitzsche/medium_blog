@@ -14,7 +14,7 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const post = Posts[Index] || {};
-    const { id: Link, title: Title, published: PostDate, content: Content, content_encoded: Content_encoded } = post;
+    const { id: Link, title: Title, published: PostDate, content: Content} = post;
 
     const handleClose = (event: React.MouseEvent) => {
         if ((event.target as HTMLElement).id === "modal-overlay") {

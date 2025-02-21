@@ -1,7 +1,5 @@
 export function FilterLoader() {
-    const categoryTags1 = 5;
-    const categoryTags2 = 3;
-
+    
     function CategoryButton() {
         const randomWidth = Math.floor(Math.random() * (150 - 100 + 1)) + 100; // Gera um valor entre 100 e 150
 

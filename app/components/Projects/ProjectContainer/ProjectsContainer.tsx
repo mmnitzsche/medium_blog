@@ -6,7 +6,7 @@ import ProjectHeader from "./ProjectHeader";
 import FilterContainer from "../Filter/FilterContainer";
 import ProjectPosts from "./ProjectPosts";
 import { MediumUserName } from "@/utils/MediumFeed";
-MediumUserName
+
 
 export default function ProjectsContainer() {
   const { data: posts } = UsePostApi(MediumUserName);
