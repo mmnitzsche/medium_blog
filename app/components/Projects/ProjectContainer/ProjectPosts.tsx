@@ -15,7 +15,7 @@ interface props {
 }
 
 
-export default function ProjectPosts(props:props) {
+export default function ProjectPosts(props: props) {
 
     const [filter, setFilter] = useAtom(CategoryValue)
     const [postIndex, setpostIndex] = useAtom(PostIndex)
@@ -23,13 +23,9 @@ export default function ProjectPosts(props:props) {
     // const { data: postsRequest } = UsePostApi(MediumUserName);
     const postsRequest = props.Posts
 
-
-
     if (!postsRequest) {
         return <PostsLoader />
     }
-
-    const validateDate = new Date("2024-02-20")          // ✅ Válido
 
 
     const filteredProjects = filter
@@ -57,7 +53,7 @@ export default function ProjectPosts(props:props) {
                                 <div onClick={() => HandleClickPost(index)}>
                                     <div className="mb-3">
                                         <PostTitleContainer Title={posts.title} />
-                                        <PublishedContainer PublishedDate={validateDate} />
+                                        <PublishedContainer PublishedDate={posts.published} />
                                     </div>
                                     <ImageFormater Media={posts.content} />
                                     <ContentContainer Content={posts.content} />
