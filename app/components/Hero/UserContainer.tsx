@@ -10,7 +10,7 @@ import GroupDescription from '../Job/JobDescription';
 
 export default function UserContainer() {
     return (
-        <>
+        
             <div>
                 <div
                     className='flex items-center space-x-5'>
@@ -20,7 +20,7 @@ export default function UserContainer() {
                         ></TopicTittle>
                         <div className="flex gap-4">
                             {LinksJson.map(item => (
-                                <LinkIcon key={item.id} href={item.href} Icon={item.icon} />
+                                <LinkIcon key={item.id} href={item.href ?? "#"} Icon={item.icon ?? } />
                             ))}
                         </div>
                     </div>
@@ -34,6 +34,6 @@ export default function UserContainer() {
                 </div>
                 <UserDescription />
             </div >
-        </>
+        
     );
 }
