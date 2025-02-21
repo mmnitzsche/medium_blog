@@ -1,6 +1,5 @@
 
 import type { NextRequest } from 'next/server';
-import GetMediumFeed from './MediumFeed';
 
 // Função para obter o cookie 'medium_links' do objeto request
 export function GetMediumPostIndex(request: NextRequest) {

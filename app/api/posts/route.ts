@@ -1,10 +1,11 @@
+import { MediumFeedUrl } from "@/utils/MediumFeed";
 import { NextResponse } from "next/server";
 import { parse } from "rss-to-json";
 
 export async function GET() {
     try {
 
-        const res = await parse("https://medium.com/feed/@leticia.gerola");
+        const res = await parse(MediumFeedUrl);
 
         if (!res.items || res.items.length === 0) {
             console.warn("Nenhum post encontrado.");

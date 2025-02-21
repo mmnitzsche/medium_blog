@@ -3,6 +3,7 @@ export function PostsLoader() {
 
 
     function PostContainer() {
+        
 
         return (
             <div className="flex items-center animate-pulse p-2">
