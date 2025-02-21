@@ -61,9 +61,12 @@ export default function ProjectPosts() {
                                     <ImageFormater Media={posts.content} />
                                     <ContentContainer Content={posts.content} />
                                     <div className="flex flex-wrap gap-2">
-                                        {posts.category.map((category: any) => (
-                                            <CategoryContainer Category={category} />
-                                        ))}
+                                        {Array.isArray(posts.category) ? (
+                                            posts.category.map((category: any) => (
+                                                <CategoryContainer key={category} Category={category} />
+                                            ))
+                                        ) : null}
+
                                     </div>
                                 </div>
                             </div>

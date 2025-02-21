@@ -1,15 +1,14 @@
-
 function DevelopmentState() {
-    const runType = process.env.NODE_ENV
+    const runType = process.env.NODE_ENV;
+    let baseURL = '';
+
     if (runType === "development") {
-        let baseURL = 'http://localhost:3000/api/'
-        return baseURL
+        baseURL = 'http://localhost:3000/api/';
+    } else {
+        baseURL = `${window.location.origin}/api/`;
     }
-    else {
-        let baseURL = 'https://blog-phi-swart-79.vercel.app/api/'
-        return baseURL
-    }
+
+    return baseURL;
 }
 
-export const baseURL = DevelopmentState()
-
+export const baseURL = DevelopmentState();
