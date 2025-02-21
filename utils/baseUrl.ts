@@ -6,7 +6,7 @@ function DevelopmentState() {
         return baseURL
     }
     else {
-        let baseURL = 'https://nitit-df1n.vercel.app/api/'
+        let baseURL = 'https://blog-phi-swart-79.vercel.app/api/'
         return baseURL
     }
 }
