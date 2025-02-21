@@ -43,7 +43,7 @@ export default function ProjectPosts() {
     return (
         <>
             <div
-                className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6 transition-all h-fit w-fit bg-red-200">
+                className="grid sm:grid-cols-1 md:grid-cols-2 xl:md:grid-cols-3 gap-6 transition-all h-fit w-fit">
                 {filteredProjects.map((posts: any, index: number) => (
                     <PostDialog
                         key={posts.id}
