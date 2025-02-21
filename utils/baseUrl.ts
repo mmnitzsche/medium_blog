@@ -6,7 +6,7 @@ function DevelopmentState() {
         return baseURL
     }
     else {
-        let baseURL = 'blog-mmnitzsches-projects.vercel.app/api/'
+        let baseURL = 'https://blog-mmnitzsches-projects.vercel.app/api/'
         return baseURL
     }
 }
