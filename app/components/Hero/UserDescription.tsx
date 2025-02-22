@@ -1,14 +1,10 @@
+import { highLightsLibs, highLightsTecnologies } from '@/data/highLightsTecnologies';
 import React from 'react';
-
-
 
 export default function HeroDescription() {
   const text =
     "Sou analista de dados com experiência em Python, JavaScript, especializado em mapeamento de processos e automação. Com visão macro de negócios, integro soluções eficazes para resolver pendências. Domino Power BI, Power Apps, M Language e APIs, extraindo insights claros e acionáveis. Minha expertise em Python permite criar soluções escaláveis, otimizando processos e decisões.";
 
-  // Lista de tecnologias a serem destacadas
-  const technologies = ["Python", "Power BI", "Power Apps", "M Language", "JavaScript", "APIs"];
-  const libs = ["Power BI", "Next.js", "Pandas", "Playwright/Selenium"];
 
   // Função para destacar tecnologias em negrito
   const highlightTechnologies = (text: string, technologies: string[]) => {
@@ -25,7 +21,7 @@ export default function HeroDescription() {
     return highlightedText;
   };
 
-  const highlightedDescription = highlightTechnologies(text, technologies);
+  const highlightedDescription = highlightTechnologies(text, highLightsTecnologies);
 
   interface LibProps {
     Lib?: string;
@@ -55,7 +51,7 @@ export default function HeroDescription() {
       </div>
       <div
         className="flex space-x-3 flex-wrap space ">
-        {libs.map((item, index) => (
+        {highLightsLibs.map((item, index) => (
           <LibComponent key={index} Lib={item} />
         ))}
       </div>

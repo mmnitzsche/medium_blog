@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LinkIcon from './LinkIcon';
-import { LinksJson } from './LinkIconJson';
+import { LinksJson } from '../../../data/LinkIconJson';
 import UserRole from './UserRole';
 import UserPhoto from './UserPhoto';
 import TopicTittle from './TopicTittle';

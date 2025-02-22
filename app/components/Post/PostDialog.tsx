@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { ExternalLink, Info, X } from "lucide-react";
 import PublishedContainer from "../Projects/Published/PublishedContainer";
 import PostDialogLink from "./PostDialogLink";
 
@@ -14,7 +14,7 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
 
     const post = Posts[Index] || {};
-    const { id: Link, title: Title, published: PostDate, content: Content} = post;
+    const { id: Link, title: Title, published: PostDate, content: Content } = post;
 
     const handleClose = (event: React.MouseEvent) => {
         if ((event.target as HTMLElement).id === "modal-overlay") {
@@ -54,6 +54,21 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
                         </div>
                         <div className="text-gray-500 text-sm mt-2">
                             <PublishedContainer PublishedDate={PostDate} />
+                        </div>
+
+                        <div className=" w-full h-12 bg-gray-100 border-l-4 border-slate-400  text-sm text-slate-400 rounded p-1 flex items-center space-x-1 cursor-default">
+                            <div>
+                                <Info size={18}></Info>
+                            </div>
+                            <div>
+                                Isso é apenas uma prévia do artigo original. Para ler o artigo com a formatação correta, clique aqui:
+                            </div>
+                            <div>
+                                <PostDialogLink
+                                    Icon={<ExternalLink size={18} />}
+                                    Link={Link}
+                                />
+                            </div>
                         </div>
                         <div
                             className="text-gray-700 mt-4 justify-center"

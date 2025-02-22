@@ -1,6 +1,6 @@
 import { Github, Linkedin } from "lucide-react";
-import ImdbLogo from "./Images/ImdbLogo";
-import MediumLogo from "./Images/MediumLogo";
+import ImdbLogo from "../app/components/Hero/Images/ImdbLogo";
+import MediumLogo from "../app/components/Hero/Images/MediumLogo";
 
 // Defina explicitamente o tipo do array Links
 export const LinksJson: {

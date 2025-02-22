@@ -7,9 +7,6 @@ Este projeto é um blog construído com **React** e **Next.js**, que obtém auto
 - **React** – Para a construção da interface
 - **Next.js** – Para renderização e otimização do conteúdo
 - **RSS/XML** – Para obter os artigos do Medium
-- **Axios** – Para fazer requisições HTTP
-- **Prisma** – ORM
-
 
 ## 📌 Funcionalidades
 
@@ -17,8 +14,6 @@ Este projeto é um blog construído com **React** e **Next.js**, que obtém auto
 - Renderização otimizada com Next.js
 - Blog totalmente estático, sem necessidade de backend próprio
 - Facilidade de personalização e hospedagem
-- Playground para testar como um perfil do medium funcionaria no vlog
-
 
 ## 🛠 Como Rodar o Projeto
 
@@ -56,14 +51,10 @@ Este projeto é um blog construído com **React** e **Next.js**, que obtém auto
 ## 📂 Estrutura do Projeto
 ```
 📂 seu-repositorio
-├── 📁 app   #  define rotas usando React Server Components
-├── 📁 lib       # Arquivos estáticos
-├── 📁 data       # Dados em formato Json para ser usado no na descrição do usuário
-│   ├── 📄 blogData.ts #Dados relacionados a carreira
-│   ├── 📄 educationDate.ts  # Dados relacionados a cursos e graduações
-│   └── 📄 highLightsTecnologies.ts #Dados tecnologias que você quer destacar
-├── 📁 public       # arquivos públicos
-├── 📁 utils       # funções
+├── 📁 components   # Componentes reutilizáveis
+├── 📁 pages        # Páginas do Next.js
+├── 📁 public       # Arquivos estáticos
+├── 📁 styles       # Estilos CSS/SCSS
 ├── 📄 package.json # Configuração do projeto
 └── 📄 README.md    # Documentação do projeto
 ```
@@ -75,5 +66,9 @@ npm install -g vercel
 vercel
 ```
 
+## 📜 Licença
+Este projeto está sob a licença MIT. Sinta-se livre para usá-lo e modificá-lo!
 
+---
+**Desenvolvido por [Seu Nome](https://github.com/seu-usuario)** 🚀
 

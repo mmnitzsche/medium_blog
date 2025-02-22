@@ -19,8 +19,6 @@ export default function ProjectPosts(props: props) {
 
     const [filter, setFilter] = useAtom(CategoryValue)
     const [postIndex, setpostIndex] = useAtom(PostIndex)
-
-    // const { data: postsRequest } = UsePostApi(MediumUserName);
     const postsRequest = props.Posts
 
     if (!postsRequest) {

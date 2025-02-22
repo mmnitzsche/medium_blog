@@ -14,6 +14,7 @@ export default function CategoryContainer(props: props) {
                 className="transition-all px-3 py-1 text-xs text-white rounded-full bg-secondary">
                 {props.Category.replace(/-/g, " ")}
             </span>
+            
         </>
     );
 }

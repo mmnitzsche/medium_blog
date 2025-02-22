@@ -1,5 +1,5 @@
 export function FilterLoader() {
-    
+
     function CategoryButton() {
         const randomWidth = Math.floor(Math.random() * (150 - 100 + 1)) + 100; // Gera um valor entre 100 e 150
 

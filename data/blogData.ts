@@ -39,3 +39,5 @@ Entre os projetos principais estão o Any Malu Show (Cartoon Network Brasil) e A
 Utilizei tecnologias como Python, ClickUp, Google Sheets, Power BI, Data Studio e APIs REST, além de frameworks como Playwright, BeautifulSoup, Pandas e Numpy. para tracking de desempenho.`,
     },
 ];
+
+export const profession = "Data Analyst & Fullstack Developer"
