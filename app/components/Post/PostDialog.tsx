@@ -56,7 +56,7 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
                             <PublishedContainer PublishedDate={PostDate} />
                         </div>
 
-                        <div className=" w-full h-12 bg-gray-100 border-l-4 border-slate-400  text-sm text-slate-400 rounded p-1 flex items-center space-x-1 cursor-default">
+                        <div className=" w-full min:h-16 h-fit bg-gray-100 border-l-4 border-slate-400  sm:text-xs text-sm text-slate-400 rounded p-1 flex items-center space-x-1 cursor-default">
                             <div>
                                 <Info size={18}></Info>
                             </div>

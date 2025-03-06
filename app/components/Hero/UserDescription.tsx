@@ -1,9 +1,12 @@
 import { highLightsLibs, highLightsTecnologies } from '@/data/highLightsTecnologies';
+import { userDescriptionText } from '@/data/userDescription';
 import React from 'react';
+
+
 
 export default function HeroDescription() {
   const text =
-    "Sou analista de dados com experiência em Python, JavaScript, especializado em mapeamento de processos e automação. Com visão macro de negócios, integro soluções eficazes para resolver pendências. Domino Power BI, Power Apps, M Language e APIs, extraindo insights claros e acionáveis. Minha expertise em Python permite criar soluções escaláveis, otimizando processos e decisões.";
+    userDescriptionText
 
 
   // Função para destacar tecnologias em negrito

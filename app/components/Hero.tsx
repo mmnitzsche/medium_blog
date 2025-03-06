@@ -11,10 +11,10 @@ export default function Hero() {
           <section
             className="relative  flex items-center pt-10 pb-10 ">
             <a href="#about"></a>
-            <HeroDescription></HeroDescription>
+            <HeroDescription />
           </section>
-          <CarrerContainer></CarrerContainer>
-          <EducationContainer></EducationContainer>
+          <CarrerContainer />
+          <EducationContainer />
         </div>
       </div>
 

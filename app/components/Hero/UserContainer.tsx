@@ -30,7 +30,7 @@ export default function UserContainer() {
             </div>
 
             {/* Versão Mobile */}
-            <div className="flex md:hidden flex-col items-center space-y-5">
+            <div className="flex sm:hidden flex-col items-center space-y-5">
                 <TopicTittle TopicName="Mateus Nitzsche" />
                 <div className="flex gap-4">
                     {LinksJson.map((item) => (
