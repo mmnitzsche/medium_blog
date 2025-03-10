@@ -1,7 +1,14 @@
+import { useState, useEffect } from "react";
+
+
 export function FilterLoader() {
 
     function CategoryButton() {
-        const randomWidth = Math.floor(Math.random() * (150 - 100 + 1)) + 100; // Gera um valor entre 100 e 150
+        const [randomWidth, setRandomWidth] = useState<number | null>(null);
+
+        useEffect(() => {
+            setRandomWidth(Math.floor(Math.random() * (150 - 100 + 1)) + 100);
+        }, []);
 
         return (
             <div className="flex items-center animate-pulse p-2">

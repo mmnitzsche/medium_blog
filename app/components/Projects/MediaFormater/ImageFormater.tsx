@@ -15,7 +15,7 @@ export default function ImageFormater({ Media }: ImageFormaterProps) {
     if (!allGifs || allGifs.length === 0) {
         return (
             <div className="flex items-center justify-center">
-                
+
             </div>
         );
     }
@@ -66,32 +66,24 @@ function GifCarousel({ gifs }: GifCarouselProps) {
             </div>
 
 
-            <div className="flex justify-center mt-2 space-x-2">        
+            <div className="flex justify-center mt-2 space-x-2">
                 {gifs.map((_, index) => (
-                    <>
-                        
-                        {index === currentIndex ?
-                            (<div
-                                key={index}
-                                className="h-1 w-8 rounded-full bg-gray-300 overflow-hidden">
+                    <div key={index} className="flex">
+                        {index === currentIndex ? (
+                            <div className="h-1 w-8 rounded-full bg-gray-300 overflow-hidden">
                                 <div
                                     className="h-full bg-[#acacac] transition-[width] duration-[9.8s] ease-linear"
-                                    style={{
-                                        width: index === currentIndex ? `${progress}%` : "0%",
-                                    }}
+                                    style={{ width: index === currentIndex ? `${progress}%` : "0%" }}
                                 />
-                            </div>) :
-                            (<div
-                                key={index}
-                                className="h-1 w-2 rounded-full bg-gray-300 overflow-hidden">
-                                <div
-                                    className="h-full bg-[#d1d5db] transition-[width] duration-[9.8s] ease-linear"
-                                    
-                                />
-                            </div>)
-                        }
-                    </>
+                            </div>
+                        ) : (
+                            <div className="h-1 w-2 rounded-full bg-gray-300 overflow-hidden">
+                                <div className="h-full bg-[#d1d5db] transition-[width] duration-[9.8s] ease-linear" />
+                            </div>
+                        )}
+                    </div>
                 ))}
+
             </div>
         </div>
     );

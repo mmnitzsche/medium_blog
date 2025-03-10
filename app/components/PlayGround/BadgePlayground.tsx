@@ -21,7 +21,7 @@ export default function PlaygroundBadge() {
         return (
             <div
                 onClick={handleDirect}
-                className="p-2 bg-gray-200 rounded-md flex items-center text-sm cursor-pointer 
+                className="animate- p-2 bg-gray-200 rounded-md flex items-center text-sm cursor-pointer 
                 transition-colors duration-300 hover:bg-pink-400 hover:text-white group">
                 <Sparkle size={16} className="transition-transform duration-300 group-hover:rotate-90" />
                 <div className="ml-1">{badgeText}</div>
@@ -35,9 +35,9 @@ export default function PlaygroundBadge() {
                 <div className='space-x-0.5'>
                     <div
                         onClick={handleDirect}
-                        className="p-2 bg-gray-200 rounded-md flex items-center text-sm cursor-pointer 
+                        className="p-2 bg-gray-200 rounded-md flex items-center text-sm cursor-pointer whitespace-nowrap
                 transition-colors duration-300 hover:bg-[#4c4b44] hover:text-white">
-                        <CircleUser size={16} />
+                        <CircleUser size={16} className='group-hover: animate-bounce' />
                         <div className="ml-1">{badgeText}</div>
                     </div>
                     {/* <Github></Github> */}

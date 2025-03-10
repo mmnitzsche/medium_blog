@@ -5,16 +5,24 @@ import JobDescription from '../Job/JobDescription';
 import JobTittle from './GroupTittle';
 import CompanyName from './GroupName';
 import JobPeriod from './GroupPeriod';
-import { jobs } from '@/data/blogData';
+
+
+
 import TopicTittle from '../Hero/TopicTittle';
+import { ExperienceTitle, jobs } from '@/data/BlogGeneralStaticData';
+import { useAtom } from 'jotai';
+import { LanguageAtom } from '@/utils/atom';
 
 export default function CarrerContainer() {
+    const [SelectLang] = useAtom(LanguageAtom)
+
+
     return (
         <div
         >
             <TopicTittle
-            TopicName='Experiência'
-             />
+                TopicName={ExperienceTitle[SelectLang]}
+            />
             {jobs.map(({ id, companyName, companySite, description, startPeriod, endPeriod, jobRole }) => (
                 <div key={id} className='pb-5'>
                     <CompanyName GroupName={companyName} GroupSite={companySite} />
@@ -27,7 +35,7 @@ export default function CarrerContainer() {
                         startPeriod={startPeriod}
                         endPeriod={endPeriod}
                     />
-                    <JobDescription FullText={description}  />
+                    <JobDescription FullText={description[SelectLang]} />
                 </div>
             ))}
         </div>

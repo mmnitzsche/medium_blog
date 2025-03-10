@@ -40,7 +40,8 @@ export default function FilterContainer({ Posts }: Props) {
                     className={`flex items-center justify-center space-x-1 px-2 py-2 rounded-full text-md transition-all font-semibold text-slate-600 ${filter === originalCategory
                         ? "outline outline-2 outline-primary text-primary-foreground"
                         : "outline-none hover:outline hover:outline-2 hover:outline-gray-300"}`}>
-                    {categoryCountMap[originalCategory].name} <CounterContainer Counter={categoryCountMap[originalCategory].count} />
+                    {categoryCountMap[originalCategory].name}
+                    <CounterContainer Counter={categoryCountMap[originalCategory].count} />
                 </button>
             ))}
         </div>

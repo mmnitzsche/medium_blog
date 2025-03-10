@@ -1,12 +1,16 @@
 import { highLightsLibs, highLightsTecnologies } from '@/data/highLightsTecnologies';
-import { userDescriptionText } from '@/data/userDescription';
+import { MainTecnologies, userDescriptionText } from '@/data/BlogGeneralStaticData';
+import { LanguageAtom } from '@/utils/atom';
+import { useAtom } from 'jotai';
 import React from 'react';
 
 
 
 export default function HeroDescription() {
+
+  const [SelectLang] = useAtom(LanguageAtom)
   const text =
-    userDescriptionText
+    userDescriptionText[SelectLang]
 
 
   // Função para destacar tecnologias em negrito
@@ -50,7 +54,7 @@ export default function HeroDescription() {
         dangerouslySetInnerHTML={{ __html: highlightedDescription }}
       />
       <div className="pt-4 font-semibold ">
-        Principais tecnologias:
+        {MainTecnologies[SelectLang]}
       </div>
       <div
         className="flex space-x-3 flex-wrap space ">

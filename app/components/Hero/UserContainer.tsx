@@ -6,19 +6,23 @@ import UserRole from './UserRole';
 import UserPhoto from './UserPhoto';
 import TopicTittle from './TopicTittle';
 import UserDescription from './UserDescription';
+import { userName } from '@/data/BlogGeneralStaticData';
+
+// import { userName } from '@/data/blogData';
+
 
 export default function UserContainer() {
     return (
         <div>
-            {/* Versão Wildscreen (Desktop) */}
+            {/* Versão Desktop */}
             <div className="hidden md:flex items-center space-x-5">
                 <div>
-                    <TopicTittle TopicName="Mateus Nitzsche" />
-                    <div className="flex gap-4">
+                    <TopicTittle TopicName={userName} />
+                    <div className="flex gap-1">
                         {LinksJson.map((item) => (
                             <LinkIcon
                                 key={item.id}
-                                href={item.href ?? ''}  // Fallback para uma string vazia se href for undefined
+                                href={item.href ?? ''}
                                 Icon={item.icon ?? ''}
                             />
                         ))}
@@ -30,22 +34,24 @@ export default function UserContainer() {
             </div>
 
             {/* Versão Mobile */}
-            <div className="flex sm:hidden flex-col items-center space-y-5">
-                <TopicTittle TopicName="Mateus Nitzsche" />
+            <div className="flex md:hidden flex-col items-center space-y-5">
+                <TopicTittle TopicName={userName} />
                 <div className="flex gap-4">
-                    {LinksJson.map((item) => (
+                    {LinksJson.slice(0, 3).map((item) => ( // Mostra apenas 3 ícones em telas pequenas
                         <LinkIcon
                             key={item.id}
-                            href={item.href ?? ''}  // Fallback para uma string vazia se href for undefined
+                            href={item.href ?? ''}
                             Icon={item.icon ?? ''}
                         />
                     ))}
                 </div>
+
                 <div className="w-28 md:w-32">
                     <UserPhoto />
                 </div>
             </div>
 
+            {/* Conteúdo comum a ambas as versões */}
             <div className="pt-2">
                 <UserRole />
             </div>
