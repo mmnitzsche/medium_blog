@@ -1,6 +1,6 @@
 export function extractLinksFromContent(content) {
   // Expressão regular para capturar o conteúdo após "links::"
-  const lookbehind = /(?<=links::)(.*)/s;
+  const lookbehind = /(?<=links::)([\s\S]*)/;
   const lookbehindResult = content
     .match(lookbehind)[0]
     .replace(/<[^>]*>/g, "")
