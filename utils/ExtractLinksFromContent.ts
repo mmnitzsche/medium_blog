@@ -1,8 +1,14 @@
 export function extractLinksFromContent(content) {
   // Expressão regular para capturar o conteúdo após "links::"
   const lookbehind = /(?<=links::)([\s\S]*)/;
-  const lookbehindResult = content
-    .match(lookbehind)[0]
+
+  // Verifica se a correspondência foi encontrada
+  const matchResult = content.match(lookbehind);
+  if (!matchResult) {
+    return {}; // Retorna um objeto vazio se não houver correspondência
+  }
+
+  const lookbehindResult = matchResult[0]
     .replace(/<[^>]*>/g, "")
     .replace("[", "{")
     .replace("]", "}");
@@ -23,6 +29,11 @@ export function extractLinksFromContent(content) {
     .filter(Boolean) // Remover entradas inválidas
     .join(","); // Juntar novamente com vírgulas
 
-  // Converter a string JSON em um objeto JavaScript
-  return JSON.parse(`{${jsonString}}`);
+  try {
+    // Converter a string JSON em um objeto JavaScript
+    return JSON.parse(`{${jsonString}}`);
+  } catch (error) {
+    console.error("Erro ao analisar JSON:", error);
+    return {}; // Retorna um objeto vazio em caso de erro
+  }
 }

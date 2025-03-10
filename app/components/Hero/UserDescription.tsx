@@ -53,11 +53,11 @@ export default function HeroDescription() {
         className="text-sm break-words whitespace-normal"
         dangerouslySetInnerHTML={{ __html: highlightedDescription }}
       />
-      <div className="pt-4 font-semibold ">
+      <div className="pt-4 font-semibold col-4 ">
         {MainTecnologies[SelectLang]}
       </div>
       <div
-        className="flex space-x-3 flex-wrap space ">
+        className="flex space-x-3 flex-wrap space col-4">
         {highLightsLibs.map((item, index) => (
           <LibComponent key={index} Lib={item} />
         ))}

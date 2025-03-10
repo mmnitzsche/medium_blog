@@ -30,7 +30,7 @@ export const education = [
     {
         id: 1,
         mainName: "Media & Audiovisual",
-        institution: "Estácio - Superior",
+        institution: "Estácio - Collage",
         link: "",
         startPeriod: "2013",
         endPeriod: "2016",

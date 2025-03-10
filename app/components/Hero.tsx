@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <>
 
-      <div className="rounded p-4 max-w-[500px] min-w-[300px] flex">
+      <div className="rounded p-4 max-w-[430px] min-w-[200px] flex">
         <div className="bg-[#f6f5f1] p-3 rounded-xl" >
           
           <section
