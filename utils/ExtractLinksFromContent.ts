@@ -8,10 +8,15 @@ export function extractLinksFromContent(content) {
     return {}; // Retorna um objeto vazio se não houver correspondência
   }
 
-  const lookbehindResult = matchResult[0]
+  let lookbehindResult = matchResult[0]
     .replace(/<[^>]*>/g, "")
     .replace("[", "{")
     .replace("]", "}");
+
+  // Remove o último caractere se for "}"
+  if (lookbehindResult.endsWith("}")) {
+    lookbehindResult = lookbehindResult.slice(0, -1);
+  }
 
   // Transformar o conteúdo em um JSON válido
   const jsonString = lookbehindResult

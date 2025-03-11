@@ -8,6 +8,8 @@ interface Props {
 export default function LinkContainer(props: Props) {
     const { linkJson } = props;
 
+    console.log(linkJson)
+
     // Verifica se o linkJson está vazio
     const hasLinks = Object.keys(linkJson).length > 0;
 
@@ -43,6 +45,10 @@ export default function LinkContainer(props: Props) {
                         bgColor = 'bg-blue-200';
                         textColor = 'text-blue-900';
                         hoverColor = 'hover:bg-blue-300';
+                    } else if (key === 'dashboard') {
+                        bgColor = 'bg-amber-200';
+                        textColor = 'text-amber-900';
+                        hoverColor = 'hover:bg-amber-300';
                     } else if (key === 'article') {
                         bgColor = 'bg-neutral-200';
                         textColor = 'text-neutral-900';
@@ -50,12 +56,17 @@ export default function LinkContainer(props: Props) {
                     }
 
                     return (
-                        <div
-                            key={key}
-                            className={`p-1 rounded-lg ${bgColor} ${textColor} ${hoverColor} transition-colors duration-200 cursor-pointer`}
-                            onClick={(event) => handleClick(event, value as string)}>
-                            {key.charAt(0).toUpperCase() + key.slice(1)}
-                        </div>
+                        <>
+                            <div
+                                key={key}
+                                className={`p-1 rounded-lg ${bgColor} ${textColor} ${hoverColor} transition-colors duration-200 cursor-pointer`}
+                                onClick={(event) => handleClick(event, value as string)}>
+                                {key.charAt(0).toUpperCase() + key.slice(1)}
+                            </div>
+                            {/* <div>
+                                {value}
+                            </div> */}
+                        </>
                     );
                 })}
             </div>
