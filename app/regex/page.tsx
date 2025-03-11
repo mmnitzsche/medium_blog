@@ -26,7 +26,6 @@ export default function Page() {
 
     const portugueseIndex = content.indexOf(textCheckPoint);
 
-    const allValues = extractAllHrefs(content)
 
     return (
         <>
@@ -38,7 +37,6 @@ export default function Page() {
                 <div>
                     <h3>{Title}</h3>
                     <h3>{portugueseIndex}</h3>
-                    {JSON.stringify(allValues)}
                 </div>
             </div>
         </>
