@@ -5,7 +5,7 @@ import ImageFormater from "../MediaFormater/ImageFormater";
 import ContentContainer from "../Content/ContentContainer";
 import CategoryContainer from "../Category/CategoryContainer";
 import PostTitleContainer from "../PostTitle/PostTitleContainer";
-import { CategoryValue, LanguageAtom, PostIndex } from '@/utils/atom'
+import { CategoryValue, LanguageAtom, PostIndex } from '@/utils/atom';
 import { useAtom } from "jotai";
 import { PostDialog } from "../../Post/PostDialog";
 import { PostsLoader } from "../../Loader/PostsLoader";
@@ -14,9 +14,8 @@ import { extractFirstStrongContent } from "@/utils/ExtractTitle";
 import { extractLinksFromContent } from "@/utils/ExtractLinksFromContent";
 import LinkContainer from "../../LinksComponent/LinkContainer";
 
-
 interface Props {
-    Posts: any;
+    Posts: any; // Você pode tipar isso melhor se necessário
 }
 
 export default function ProjectPosts(props: Props) {
@@ -30,13 +29,14 @@ export default function ProjectPosts(props: Props) {
         return <PostsLoader />;
     }
 
+    // Filtra os posts com base na categoria selecionada
     const filteredProjects = filter
-        ? postsRequest.filter((project) => project.category.includes(filter))
-        : postsRequest;
+        ? postsRequest.items.filter((project: any) => project.categories.includes(filter))
+        : postsRequest.items;
 
     const handleClickPost = (filteredIndex: number) => {
         // Encontre o índice correto no array original
-        const originalIndex = postsRequest.findIndex(post => post.id === filteredProjects[filteredIndex].id);
+        const originalIndex = postsRequest.items.findIndex((post: any) => post.guid === filteredProjects[filteredIndex].guid);
         setPostIndex(originalIndex);
     };
 
@@ -46,40 +46,40 @@ export default function ProjectPosts(props: Props) {
                 {filteredProjects.map((posts: any, filteredIndex: number) => {
                     // Armazena o valor do título em uma variável
                     const postTitle = extractFirstStrongContent(
-                        posts.content,
-                        extractContentByLanguage(posts.content, SelectLang),
+                        posts['content:encoded'],
+                        extractContentByLanguage(posts['content:encoded'], SelectLang),
                         posts.title,
                         SelectLang
                     );
 
-                    const ContentValue = extractContentByLanguage(posts.content, SelectLang)
+                    const ContentValue = extractContentByLanguage(posts['content:encoded'], SelectLang);
 
-                    const PostLinks = extractLinksFromContent(posts.content)
+                    const PostLinks = extractLinksFromContent(posts['content:encoded']);
 
                     return (
                         <PostDialog
-                            key={posts.id}
-                            Posts={postsRequest}
+                            key={posts.guid}
+                            Posts={postsRequest.items}
                             Index={postIndex}
                             Component={
                                 <div
                                     className="group p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#f2f2f2] shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in h-fit cursor-pointer"
                                     onClick={() => handleClickPost(filteredIndex)}
                                 >
-                                    <div>                    
+                                    <div>
                                         <div className="mb-3">
                                             {/* Passa a variável postTitle para o PostTitleContainer */}
                                             <PostTitleContainer Title={postTitle} />
-                                            <PublishedContainer PublishedDate={posts.published} />
+                                            <PublishedContainer PublishedDate={posts.pubDate} />
                                         </div>
                                         <LinkContainer linkJson={PostLinks} />
-                                        <ImageFormater Media={posts.content} />
+                                        <ImageFormater Media={posts['content:encoded']} />
                                         <ContentContainer Content={ContentValue} />
                                         <div>
                                         </div>
                                         <div className="flex flex-wrap gap-2">
-                                            {Array.isArray(posts.category) ? (
-                                                posts.category.map((category: any) => (
+                                            {Array.isArray(posts.categories) ? (
+                                                posts.categories.map((category: any) => (
                                                     <CategoryContainer key={category} Category={category} />
                                                 ))
                                             ) : null}

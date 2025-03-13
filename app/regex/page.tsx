@@ -5,6 +5,7 @@ import { useAtom } from 'jotai';
 import { LanguageAtom } from '@/utils/atom';
 import { textCheckPoint } from '@/data/BlogGeneralStaticData';
 import { extractContentByLanguage } from '@/utils/ExtractContentByLanguage';
+import { extractAllLinks, getFaviconUrls } from '@/utils/ExtractAllLinks';
 
 
 export default function Page() {
@@ -23,22 +24,33 @@ export default function Page() {
 
     const displayedContent = extractContentByLanguage(content, SelectValue);
     const Title = extractFirstStrongContent(displayedContent);
+    const links = extractAllLinks(content)
+    const favicons = getFaviconUrls(links)
+
 
     const portugueseIndex = content.indexOf(textCheckPoint);
 
 
+
+
     return (
         <>
-
-            <div className='m-8 text-[40px] font-bold'>
+            <div className="m-8 text-[40px] font-bold">
                 <div>
                     <LanguageDropdownContainer />
                 </div>
                 <div>
                     <h3>{Title}</h3>
                     <h3>{portugueseIndex}</h3>
+                    {JSON.stringify(links)}
+                    {JSON.stringify(favicons)}
+                    {favicons.map((icon, index) => (
+                        <div key={index}>
+                            <img src={icon} alt="Favicon" className="w-10 h-10" />
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
-    );
+    )
 }

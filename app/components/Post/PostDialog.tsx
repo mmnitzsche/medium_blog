@@ -20,7 +20,7 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
 
 
     const post = Posts[Index] || {};
-    const { id: Link, title: Title, published: PostDate, content: Content } = post;
+    const { link: Link, title: Title, pubDate: PostDate, 'content:encoded': Content } = post;
 
     const contetByLanguage = extractContentByLanguage(Content, SelectLang);
     const extractLangueTitle = extractFirstStrongContent(Content, contetByLanguage, Title, SelectLang);

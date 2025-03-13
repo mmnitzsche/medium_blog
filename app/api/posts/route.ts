@@ -1,26 +1,29 @@
-import { NextResponse } from "next/server";
-import { parse } from "rss-to-json";
+import Parser from 'rss-parser';
+import { NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
+export async function GET(request: Request) {
     try {
-        const { searchParams } = new URL(req.url);
-        const feedUrl = searchParams.get("feedUrl");
+        // Extrai o parâmetro de consulta "username" da URL
+        const url = new URL(request.url);
+        const username = url.searchParams.get('username');
 
-        if (!feedUrl) {
-            return NextResponse.json({ message: "URL do feed não fornecida." }, { status: 400 });
+        // Verifica se o username foi fornecido
+        if (!username) {
+            return NextResponse.json(
+                { message: "O parâmetro 'username' é obrigatório" },
+                { status: 400 }
+            );
         }
 
-        const res = await parse(feedUrl);
+        const parser = new Parser();
+        const response = await fetch(`https://medium.com/feed/@${username}`);
+        const text = await response.text();
+        const feed = await parser.parseString(text);
 
-        if (!res.items || res.items.length === 0) {
-            return NextResponse.json({ message: "Nenhum post encontrado." }, { status: 404 });
-        }
-
-        return NextResponse.json(res.items);
-    } catch (err: any) {
-        console.error("Erro ao buscar posts do Medium:", err);
+        return NextResponse.json(feed);
+    } catch (err) {
         return NextResponse.json(
-            { message: err.message || "Erro ao processar a requisição" },
+            { message: "Erro ao buscar o feed", error: err.message },
             { status: 500 }
         );
     }

@@ -5,7 +5,7 @@ import { FilterLoader } from '../../Loader/FilterLoader';
 import CounterContainer from './CounterContainer';
 
 interface Props {
-    Posts: any;
+    Posts: any; // Você pode tipar isso melhor se necessário
 }
 
 export default function FilterContainer({ Posts }: Props) {
@@ -16,11 +16,11 @@ export default function FilterContainer({ Posts }: Props) {
     }
 
     // Criar um mapa de contagem de categorias e substituir "-" por espaço
-    const categoryCountMap = Posts
-        .map((item: { category: string | string[] }) => item.category)
-        .flat()
+    const categoryCountMap = Posts.items
+        .map((item: { categories: string[] }) => item.categories) // Acessa o array de categorias
+        .flat() // Achata o array de arrays em um único array
         .reduce((acc: Record<string, { name: string; count: number }>, category: string) => {
-            const formattedName = category.replace(/-/g, " ");
+            const formattedName = category.replace(/-/g, " "); // Substitui hífens por espaços
             if (!acc[category]) {
                 acc[category] = { name: formattedName, count: 0 };
             }
