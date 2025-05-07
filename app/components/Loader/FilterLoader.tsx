@@ -26,6 +26,7 @@ export function FilterLoader() {
         <>
 
             <div className="hidden sm:block">
+            
                 <div className="flex">
                     {Array.from({ length: 3 }).map((_, index) => (
                         <CategoryButton key={index} />

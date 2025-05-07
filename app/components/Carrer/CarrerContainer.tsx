@@ -20,9 +20,7 @@ export default function CarrerContainer() {
     return (
         <div
         >
-            <TopicTittle
-                TopicName={ExperienceTitle[SelectLang]}
-            />
+            <TopicTittle TopicName={ExperienceTitle[SelectLang]} />
             {jobs.map(({ id, companyName, companySite, description, startPeriod, endPeriod, jobRole }) => (
                 <div key={id} className='pb-5'>
                     <CompanyName GroupName={companyName} GroupSite={companySite} />
