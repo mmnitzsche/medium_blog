@@ -18,16 +18,18 @@ export default function FilterContainer({ Posts }: Props) {
 
     // Criar um mapa de contagem de categorias e substituir "-" por espaço
     const categoryCountMap = Posts.items
-        .map((item: { categories: string[] }) => item.categories) // Acessa o array de categorias
-        .flat() // Achata o array de arrays em um único array
+        .map((item: { categories: string[] }) => item.categories)
+        .flat()
+        .filter((category): category is string => typeof category === 'string') // <-- filtra apenas strings
         .reduce((acc: Record<string, { name: string; count: number }>, category: string) => {
-            const formattedName = category.replace(/-/g, " "); // Substitui hífens por espaços
+            const formattedName = category.replace(/-/g, " ");
             if (!acc[category]) {
                 acc[category] = { name: formattedName, count: 0 };
             }
             acc[category].count += 1;
             return acc;
-        }, {} as Record<string, { name: string; count: number }>);
+        }, {});
+
 
     // Obter as categorias únicas
     const uniqueTags = Object.keys(categoryCountMap);

@@ -1,4 +1,5 @@
 'use client'
+
 import HeroDescription from "./Hero/UserContainer";
 import CarrerContainer from "./Carrer/CarrerContainer";
 import EducationContainer from "./Education/EducationContainer";
