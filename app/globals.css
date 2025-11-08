@@ -70,6 +70,18 @@ body {
   }
 }
 
+/* ===========================
+   Esconde scrollbar (mas mantém o scroll)
+   =========================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
 /* Aplicando as variáveis ao corpo e demais elementos */
 @layer base {
   * {

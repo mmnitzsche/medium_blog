@@ -3,7 +3,6 @@ import { useAtom } from 'jotai';
 import { CategoryValue } from '@/utils/atom';
 import { FilterLoader } from '../../Loader/FilterLoader';
 import CounterContainer from './CounterContainer';
-import ViewContainer from '../Views/ViewContainer';
 
 interface Props {
     Posts: any; // Você pode tipar isso melhor se necessário
@@ -53,10 +52,7 @@ export default function FilterContainer({ Posts }: Props) {
                     ))}
                 </div>
             </div>
-            <div
-                className='flex flex-col justify-center'>
-                <ViewContainer />
-            </div>
+
         </>
     );
 }

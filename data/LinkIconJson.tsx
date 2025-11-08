@@ -1,6 +1,8 @@
 import { Github, Linkedin } from "lucide-react";
 import ImdbLogo from "../app/components/Hero/Images/ImdbLogo";
 import MediumLogo from "../app/components/Hero/Images/MediumLogo";
+import LeetCodeLogo from "@/app/components/Hero/Images/LeetCode";
+import CodeWarsLogo from "@/app/components/Hero/Images/CodeWars";
 
 // Defina explicitamente o tipo do array Links
 export const LinksJson: {
@@ -29,6 +31,20 @@ export const LinksJson: {
             id: 4,
             href: "https://medium.com/@mateusnit", // Link válido
             icon: <MediumLogo></MediumLogo>
+        },
+        {
+            id: 5,
+            href: "https://leetcode.com/u/mmnitzsche/", // Link válido
+            icon: <>
+            <LeetCodeLogo/>
+            </>
+        },
+        {
+            id: 6,
+            href: "https://www.codewars.com/users/mateusnit/completed_solutions", // Link válido
+            icon: <>
+            <CodeWarsLogo/>
+            </>
         },
 
     ];

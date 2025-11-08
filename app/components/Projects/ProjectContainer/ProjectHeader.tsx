@@ -23,19 +23,24 @@ export default function ProjectHeader() {
 
             <div className='items-center justify-between md:flex xl:flex '>
                 <TopicTittle
-                    TopicName={ProjectTitle[SelectedLang]}
-                ></TopicTittle>
-                <div className='space-x-2 flex' >
-                    {LanguageCondition}
-                    <PlaygroundBadge />
-                    <DialogPopup
-                        Button={<BadageScheduleMeeting />}
+                    TopicName={ProjectTitle[SelectedLang]}>
+                </TopicTittle>                
+                    <div className='space-y-1 md:flex space-x-1' >
+                        <div>
+                            {LanguageCondition}
+                        </div>
+                        <div>
+                            <PlaygroundBadge />
+                        </div>
+                        <div>
+                            <DialogPopup Button={<BadageScheduleMeeting />}>
+                                <CalendarContainer />
+                            </DialogPopup>
+                        </div>
 
-
-                    ><CalendarContainer /></DialogPopup>
-
+                    </div>
                 </div>
-            </div>
+    
         </>
     );
 }

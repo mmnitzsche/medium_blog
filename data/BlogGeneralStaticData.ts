@@ -1,8 +1,8 @@
 
 
 export const userDescriptionText = {
-    "pt": "Sou analista de dados com experiência em Python, JavaScript, especializado em mapeamento de processos e automação. Com visão macro de negócios, integro soluções eficazes para resolver pendências. Domino Power BI, Power Apps, M Language e APIs, extraindo insights claros e acionáveis. Minha expertise em Python permite criar soluções escaláveis, otimizando processos e decisões.",
-    "en": "I am a data analyst with experience in Python, JavaScript, specializing in process mapping and automation. With a macro business vision, I integrate effective solutions to resolve pending issues. I master Power BI, Power Apps, M Language, and APIs, extracting clear and actionable insights. My expertise in Python allows me to create scalable solutions, optimizing processes and decisions."
+    "pt": "Analista de Dados com 4 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Contribuições com impacto comprovado em setores como logística, mineração, RH, antifraude e marketing. Experiência em Power BI, Python para analise de dados, APIs e ferramentas de cloud (Databricks, Azure, GCP), com foco em geração de valor através da análise de dados.",
+    "en": "Data Analyst with 4 years of experience in business-oriented solutions, with strong expertise in automation, ETL, data visualization, and integration. Proven track record of impactful contributions across sectors such as logistics, mining, HR, anti-fraud, and marketing. Skilled in Power BI, Python for data analysis, APIs, and cloud tools (Databricks, Azure, GCP), with a strong focus on generating business value through data-driven insights."
 };
 
 export const MainTecnologies = {
@@ -18,10 +18,10 @@ export const ExperienceTitle = {
 export const jobs = [
     {
         id: 1,
-        companyName: "MG INFO",
+        companyName: "Mg Info - DataDriven",
         companySite: "https://mginfo.com.br/",
         startPeriod: "2022",
-        endPeriod: "Present",
+        endPeriod: "2025",
         jobRole: "Senior Data Analyst",
         description: {
             pt: `Desenvolvo relatórios em Power BI de alto padrão para empresas como Anglo American e WestRock, proporcionando análises visuais avançadas e tomadas de decisão mais ágeis. Atuo na solução de processos de automação e scraping utilizando Python, otimizando fluxos de trabalho e coleta de informações.

@@ -7,7 +7,7 @@ interface props {
 export default function TopicTittle(props: props) {
     return (
         <>
-            <h1 className="text-2xl md:text-3xl sm:text-1xl font-bold tracking-tight pb-2 ">
+            <h1 className="text-2xl md:text-3xl sm:text-1xl font-bold tracking-tight pb-2 whitespace-nowrap">
                 {props.TopicName}
             </h1>
         </>

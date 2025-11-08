@@ -7,11 +7,38 @@ export default function Page() {
   return (
     <>
       {/* Widescreen */}
-      <div className="hidden sm:flex">
-        <div className="p-4 w-full">
-          <ProjectsContainer />
+      <div className="hidden sm:flex w-full h-screen overflow-hidden">
+        {/* Coluna esquerda — Hero com scroll oculto, ativo apenas no hover */}
+        <div
+          className="w-fit h-full overflow-hidden "
+          onWheel={(e) => {
+            const target = e.currentTarget;
+            if (target.matches(':hover')) {
+              e.preventDefault();
+              target.scrollTop += e.deltaY;
+            }
+          }}
+        >
+          <div className="h-full overflow-y-auto no-scrollbar">
+            <Hero />
+          </div>
         </div>
-        <Hero />
+
+        {/* Coluna direita — ProjectsContainer com scroll próprio, ativo apenas no hover */}
+        <div
+          className="w-2/3 h-full overflow-hidden p-4"
+          onWheel={(e) => {
+            const target = e.currentTarget;
+            if (target.matches(':hover')) {
+              e.preventDefault();
+              target.scrollTop += e.deltaY;
+            }
+          }}
+        >
+          <div className="h-full overflow-y-auto">
+            <ProjectsContainer />
+          </div>
+        </div>
       </div>
 
       {/* Mobile */}

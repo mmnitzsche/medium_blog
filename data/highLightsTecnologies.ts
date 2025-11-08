@@ -1,2 +1,2 @@
 export const highLightsTecnologies = ["Python", "Power BI", "Power Apps", "M Language", "JavaScript", "APIs"];
-export const highLightsLibs = ["Power BI", "Next.js", "Pandas", "Playwright/Selenium", "Power App", "ETL with apis"];
+export const highLightsLibs = ["Power BI","SQL","Data Integration","Airflow", "ETL with apis", "Power Plataform","Business Intelligence Specialist","Pandas"];

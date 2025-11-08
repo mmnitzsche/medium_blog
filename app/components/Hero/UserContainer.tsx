@@ -18,7 +18,7 @@ export default function UserContainer() {
             <div className="hidden md:flex items-center space-x-5">
                 <div>
                     <TopicTittle TopicName={userName} />
-                    <div className="flex gap-1">
+                    <div className="grid grid-cols-4 gap-2">
                         {LinksJson.map((item) => (
                             <LinkIcon
                                 key={item.id}
