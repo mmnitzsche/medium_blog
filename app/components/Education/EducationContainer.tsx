@@ -18,18 +18,13 @@ export default function EducationContainer() {
 
     return (
         <>
-            <div
-            >
-                <TopicTittle
-                    TopicName={EducationTitle[SelectLang]}
-                />
+            <div>
+                <TopicTittle TopicName={EducationTitle[SelectLang]} />
                 {education.map(({ id, mainName, link, description, startPeriod, endPeriod, institution }, index) => (
                     <div key={`${id}-${index}`} className='pb-5'>
                         <CompanyName GroupName={mainName} GroupSite={link} />
                         <div className='flex space-x-2'>
-                            <JobTittle
-                                groupRole={institution}
-                            />
+                            <JobTittle groupRole={institution} />
                         </div>
                         <JobPeriod
                             startPeriod={startPeriod}

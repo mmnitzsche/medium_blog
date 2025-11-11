@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <>
       {/* Widescreen */}
-      <div className="hidden sm:flex w-full h-screen overflow-hidden">
+      <div className="hidden sm:flex w-full h-screen overflow-hidden no-scrollbar">
         {/* Coluna esquerda — Hero com scroll oculto, ativo apenas no hover */}
         <div
           className="w-fit h-full overflow-hidden "
@@ -26,7 +26,7 @@ export default function Page() {
 
         {/* Coluna direita — ProjectsContainer com scroll próprio, ativo apenas no hover */}
         <div
-          className="w-2/3 h-full overflow-hidden p-4"
+          className="w-2/3 -full overflow-hidden p-4 "
           onWheel={(e) => {
             const target = e.currentTarget;
             if (target.matches(':hover')) {
@@ -35,7 +35,7 @@ export default function Page() {
             }
           }}
         >
-          <div className="h-full overflow-y-auto">
+          <div className="h-full overflow-y-auto no-scrollbar">
             <ProjectsContainer />
           </div>
         </div>

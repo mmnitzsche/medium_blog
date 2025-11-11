@@ -70,9 +70,16 @@ export default function ProjectPosts(props: Props) {
                                     <PublishedContainer PublishedDate={posts.pubDate} />
                                 </div>
                                 <LinkContainer linkJson={PostLinks} />
-                                <ImageFormater Media={posts['content:encoded']} />
+                                <div className="sm:flex space-x-2">
+                                    <div className="flex-[1]">
+                                        <ImageFormater Media={posts['content:encoded']} />
+                                    </div>
+                                    <div className="flex-[1]">
+                                        <ContentContainer Content={ContentValue} />
+                                    </div>
+                                </div>
+
                                 <div>
-                                    <ContentContainer Content={ContentValue} />
                                     <div className="flex flex-wrap gap-2">
                                         {Array.isArray(posts.categories) && posts.categories.map((category: any) => (
                                             <CategoryContainer key={category} Category={category} />
