@@ -2,33 +2,33 @@
 import React, { useState } from 'react';
 
 // ----------- TF-IDF simples para RAG local -----------
-function tokenize(text) {
+function tokenize(text: string): string[] {
   return text.toLowerCase().split(/\W+/).filter(Boolean);
 }
 
-function buildTfIdf(docs) {
-  const df = {};
-  const tfidf = [];
+function buildTfIdf(docs: string[]) {
+  const df: Record<string, number> = {};
+  const tfidf: { tf: Record<string, number>; doc: string }[] = [];
 
   docs.forEach((doc, i) => {
     const tokens = tokenize(doc);
-    const tf = {};
-    tokens.forEach(t => (tf[t] = (tf[t] || 0) + 1));
+    const tf: Record<string, number> = {};
+    tokens.forEach((t: string) => (tf[t] = (tf[t] || 0) + 1));
 
     tfidf.push({ tf, doc });
 
-    const unique = new Set(tokens);
-    unique.forEach(t => (df[t] = (df[t] || 0) + 1));
+    const unique = new Set<string>(tokens);
+    unique.forEach((t: string) => (df[t] = (df[t] || 0) + 1));
   });
 
   return { df, tfidf, totalDocs: docs.length };
 }
 
-function vectorize(tokens, model) {
-  const vec = {};
+function vectorize(tokens: string[], model: { totalDocs: number; df: Record<string, number> }) {
+  const vec: Record<string, number> = {};
   const N = model.totalDocs;
 
-  tokens.forEach(t => {
+  tokens.forEach((t: string) => {
     const idf = Math.log((N + 1) / ((model.df[t] || 0) + 1));
     vec[t] = idf;
   });
@@ -36,13 +36,13 @@ function vectorize(tokens, model) {
   return vec;
 }
 
-function cosineSim(a, b) {
+function cosineSim(a: Record<string, number>, b: Record<string, number>) {
   let dot = 0;
   let na = 0;
   let nb = 0;
 
-  const allKeys = new Set([...Object.keys(a), ...Object.keys(b)]);
-  allKeys.forEach(k => {
+  const allKeys = new Set<string>([...Object.keys(a), ...Object.keys(b)]);
+  allKeys.forEach((k: string) => {
     const av = a[k] || 0;
     const bv = b[k] || 0;
     dot += av * bv;
@@ -96,16 +96,16 @@ export default function RagGemini() {
   const [apiKey, setApiKey] = useState('');
   const [input, setInput] = useState('');
   const [docs, setDocs] = useState([
-`Mateus Nitzsche – Data Analyst / Analista de Dados\nRio de Janeiro, Brasil | mmnitzsche@gmail.com | +55 (21) 98230-3111 (WhatsApp) | linkedin.com/in/mateusnit/ |Portifólio| GitHub | Medium |IMDB |LeetCode |CodeWars`,
-`Resumo\nAnalista de Dados com 4 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Experiência em Power BI, Python, APIs, Databricks, Azure, GCP.`,
-`Projetos – Integração de Sistemas: Integra dados de múltiplas plataformas via Power Query em um dashboard interativo.`,
-`Projetos – Dashboard de Atendimento ao Cliente (CX): Redução de mais de 50% no tempo de acionamento do time. [Python, Power Bi, Ollama (LLM), HTML/CSS]`,
-`Projetos – Gerador de blog automatico com Next.js + RSS/XML integrado ao Medium. [Next.js, Tailwind CSS, React, Vercel, Prisma, Axios]`,
-`Experiência – Analista de Dados Sênior – MG Info – Data Driven | nov 2022 – ago 2025: Automação com Selenium, Databricks, Pandas, SQL em Azure/GCP, Power BI, Power Apps, Dataflows, ADF.`,
-`Experiência – Analista de Dados Pleno – Antifraude – Roda Conveniência | nov 2021 – out 2022: ETL em Python, GitHub Actions, Amazon Aurora, M Lang (Power Query), Playwright, Appium.`,
-`Experiência – Analista de Dados / Coordenador de Produção Sênior – Combo Studio | fev 2017 – nov 2021: Migração de planilhas para dashboards, implantação de cultura data-driven, métodos ágeis.`,
-`Skills Técnicas: Python, JavaScript/TypeScript, SQL, M Language; Power BI, Matplotlib, Seaborn, Plotly, Streamlit; ETL com APIs, Github Actions; Next.js, Pandas, Playwright, Selenium; ClickUp, Jira.`,
-`Educação: Graduação em Mídias, Tecnologias da Comunicação Audiovisual – Estácio (2017). Certificações relevantes (DIO, Alura, Databricks e Google).`
+    `Mateus Nitzsche – Data Analyst / Analista de Dados\nRio de Janeiro, Brasil | mmnitzsche@gmail.com | +55 (21) 98230-3111 (WhatsApp) | linkedin.com/in/mateusnit/ |Portifólio| GitHub | Medium |IMDB |LeetCode |CodeWars`,
+    `Resumo\nAnalista de Dados com 4 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Experiência em Power BI, Python, APIs, Databricks, Azure, GCP.`,
+    `Projetos – Integração de Sistemas: Integra dados de múltiplas plataformas via Power Query em um dashboard interativo.`,
+    `Projetos – Dashboard de Atendimento ao Cliente (CX): Redução de mais de 50% no tempo de acionamento do time. [Python, Power Bi, Ollama (LLM), HTML/CSS]`,
+    `Projetos – Gerador de blog automatico com Next.js + RSS/XML integrado ao Medium. [Next.js, Tailwind CSS, React, Vercel, Prisma, Axios]`,
+    `Experiência – Analista de Dados Sênior – MG Info – Data Driven | nov 2022 – ago 2025: Automação com Selenium, Databricks, Pandas, SQL em Azure/GCP, Power BI, Power Apps, Dataflows, ADF.`,
+    `Experiência – Analista de Dados Pleno – Antifraude – Roda Conveniência | nov 2021 – out 2022: ETL em Python, GitHub Actions, Amazon Aurora, M Lang (Power Query), Playwright, Appium.`,
+    `Experiência – Analista de Dados / Coordenador de Produção Sênior – Combo Studio | fev 2017 – nov 2021: Migração de planilhas para dashboards, implantação de cultura data-driven, métodos ágeis.`,
+    `Skills Técnicas: Python, JavaScript/TypeScript, SQL, M Language; Power BI, Matplotlib, Seaborn, Plotly, Streamlit; ETL com APIs, Github Actions; Next.js, Pandas, Playwright, Selenium; ClickUp, Jira.`,
+    `Educação: Graduação em Mídias, Tecnologias da Comunicação Audiovisual – Estácio (2017). Certificações relevantes (DIO, Alura, Databricks e Google).`
   ]);
 
   const [history, setHistory] = useState([]);
