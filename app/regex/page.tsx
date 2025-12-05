@@ -31,8 +31,6 @@ export default function Page() {
     const portugueseIndex = content.indexOf(textCheckPoint);
 
 
-
-
     return (
         <>
             <div className="m-8 text-[40px] font-bold">
