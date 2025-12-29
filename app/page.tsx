@@ -2,6 +2,7 @@
 import React from 'react';
 import Hero from './components/Hero';
 import ProjectsContainer from './components/Projects/ProjectContainer/ProjectsContainer';
+import MobileHeader from './components/MobileHeader';
 
 export default function Page() {
   return (
@@ -43,6 +44,7 @@ export default function Page() {
 
       {/* Mobile */}
       <div className="block sm:hidden">
+        <MobileHeader />
         <div className="p-4 w-full">
           <ProjectsContainer />
         </div>

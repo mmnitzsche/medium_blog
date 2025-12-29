@@ -15,6 +15,7 @@ import ContentContainer from "../Projects/Content/ContentContainer";
 import PostTitleContainer from "../Projects/PostTitle/PostTitleContainer";
 import { extractLinksFromContent } from "@/utils/ExtractLinksFromContent";
 import LinkContainer from "../LinksComponent/LinkContainer";
+import { extractAllGifs } from "@/utils/ExtractFirstGifTest";
 
 interface Props {
     Posts: any;
@@ -33,6 +34,8 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
     const contetByLanguage = extractContentByLanguage(Content, SelectLang);
     const extractLangueTitle = extractFirstStrongContent(Content, contetByLanguage, Title, SelectLang);
     const PostLinks = extractLinksFromContent(Content);
+    const allGifs = extractAllGifs(Content);
+    const hasMedia = allGifs.length > 0;
 
     const handleClose = (event: React.MouseEvent) => {
         if ((event.target as HTMLElement).id === "modal-overlay") {
@@ -88,11 +91,13 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
 
                         <LinkContainer linkJson={PostLinks} />
 
-                        <div className="flex flex-col lg:flex-row gap-8 mb-8 items-start">
-                            <div className="flex-1 w-full">
-                                <ImageFormater Media={Content} />
-                            </div>
-                            <div className="flex-1 flex flex-col h-full justify-between">
+                        <div className={`flex flex-col lg:flex-row gap-8 mb-8 items-start ${!hasMedia ? 'w-full' : ''}`}>
+                            {hasMedia && (
+                                <div className="flex-1 w-full">
+                                    <ImageFormater Media={Content} />
+                                </div>
+                            )}
+                            <div className={`${hasMedia ? 'flex-1' : 'w-full'} flex flex-col h-full justify-between`}>
                                 <a 
                                     href={Link} 
                                     target="_blank" 

@@ -7,7 +7,7 @@ interface props {
 export default function PostTitleContainer(props: props) {
     return (
         <>
-            <h3 className="text-xl font-semibold ">{props.Title}</h3>
+            <h3 className="text-lg font-semibold">{props.Title}</h3>
         </>
     );
 }

@@ -13,8 +13,8 @@ export default function ContentContainer(props: props) {
     return (
         <>
             <div className="relative">
-                <div className="text-muted-foreground mb-4" dangerouslySetInnerHTML={{ __html: postContent }} />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-90"></div>
+                <div className="text-sm text-muted-foreground mb-4 leading-relaxed" dangerouslySetInnerHTML={{ __html: postContent }} />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-70"></div>
             </div>
         </>
     );

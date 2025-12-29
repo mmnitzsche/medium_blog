@@ -14,6 +14,7 @@ import { extractContentByLanguage } from "@/utils/ExtractContentByLanguage";
 import { extractFirstStrongContent } from "@/utils/ExtractTitle";
 import { extractLinksFromContent } from "@/utils/ExtractLinksFromContent";
 import LinkContainer from "../../LinksComponent/LinkContainer";
+import { extractAllGifs } from "@/utils/ExtractFirstGifTest";
 
 interface Props {
     Posts: any;
@@ -53,6 +54,8 @@ export default function ProjectPosts(props: Props) {
 
                 const ContentValue = extractContentByLanguage(posts['content:encoded'], SelectLang);
                 const PostLinks = extractLinksFromContent(posts['content:encoded']);
+                const allGifs = extractAllGifs(posts['content:encoded']);
+                const hasMedia = allGifs.length > 0;
 
                 return (
                     <PostDialog
@@ -69,11 +72,13 @@ export default function ProjectPosts(props: Props) {
                                     <PublishedContainer PublishedDate={posts.pubDate} />
                                 </div>
                                 <LinkContainer linkJson={PostLinks} />
-                                <div className="flex flex-col lg:flex-row gap-4">
-                                    <div className="flex-1">
-                                        <ImageFormater Media={posts['content:encoded']} />
-                                    </div>
-                                    <div className="flex-1">
+                                <div className={`flex flex-col lg:flex-row gap-4 ${!hasMedia ? 'w-full' : ''}`}>
+                                    {hasMedia && (
+                                        <div className="flex-1">
+                                            <ImageFormater Media={posts['content:encoded']} />
+                                        </div>
+                                    )}
+                                    <div className={hasMedia ? 'flex-1' : 'w-full'}>
                                         <ContentContainer Content={ContentValue} />
                                     </div>
                                 </div>

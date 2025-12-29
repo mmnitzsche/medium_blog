@@ -36,8 +36,8 @@ export default function UserContainer() {
             {/* Versão Mobile */}
             <div className="flex md:hidden flex-col items-center space-y-5">
                 <TopicTittle TopicName={userName} />
-                <div className="flex gap-4">
-                    {LinksJson.slice(0, 3).map((item) => ( // Mostra apenas 3 ícones em telas pequenas
+                <div className="flex flex-wrap justify-center gap-4">
+                    {LinksJson.map((item) => (
                         <LinkIcon
                             key={item.id}
                             href={item.href ?? ''}
