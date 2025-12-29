@@ -30,7 +30,6 @@ export default function ProjectPosts(props: Props) {
         return <PostsLoader />;
     }
 
-    // Filtra os posts com base na categoria selecionada
     const filteredProjects = filter
         ? postsRequest.items.filter((project: any) => project.categories.includes(filter))
         : postsRequest.items;
@@ -62,7 +61,7 @@ export default function ProjectPosts(props: Props) {
                         Index={postIndex}
                         Component={
                             <div
-                                className="group p-6 rounded-2xl bg-white/50 backdrop-blur-sm   hover:shadow-xl transition-all duration-300 animate-fade-in cursor-pointer"
+                                className="group p-6 rounded-2xl bg-white/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 animate-fade-in cursor-pointer"
                                 onClick={() => handleClickPost(filteredIndex)}
                             >
                                 <div className="mb-3">
@@ -70,16 +69,16 @@ export default function ProjectPosts(props: Props) {
                                     <PublishedContainer PublishedDate={posts.pubDate} />
                                 </div>
                                 <LinkContainer linkJson={PostLinks} />
-                                <div className="sm:flex space-x-2">
-                                    <div className="flex-[1]">
+                                <div className="flex flex-col lg:flex-row gap-4">
+                                    <div className="flex-1">
                                         <ImageFormater Media={posts['content:encoded']} />
                                     </div>
-                                    <div className="flex-[1]">
+                                    <div className="flex-1">
                                         <ContentContainer Content={ContentValue} />
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className="mt-4">
                                     <div className="flex flex-wrap gap-2">
                                         {Array.isArray(posts.categories) && posts.categories.map((category: any) => (
                                             <CategoryContainer key={category} Category={category} />

@@ -2,7 +2,7 @@
 
 export const userDescriptionText = {
     "pt": "Analista de Dados com 4 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Contribuições com impacto comprovado em setores como logística, mineração, RH, antifraude e marketing. Experiência em Power BI, Python para analise de dados, APIs e ferramentas de cloud (Databricks, Azure, GCP), com foco em geração de valor através da análise de dados.",
-    "en": "Data Analyst with 4 years of experience in business-oriented solutions, with strong expertise in automation, ETL, data visualization, and integration. Proven track record of impactful contributions across sectors such as logistics, mining, HR, anti-fraud, and marketing. Skilled in Power BI, Python for data analysis, APIs, and cloud tools (Databricks, Azure, GCP), with a strong focus on generating business value through data-driven insights."
+    "en": "Data Analyst with 6 years of experience in business-oriented solutions, with strong expertise in automation, ETL, data visualization, and integration. Proven track record of impactful contributions across sectors such as logistics, mining, HR, anti-fraud, and marketing. Skilled in Power BI, Python for data analysis, APIs, and cloud tools (Databricks, Azure, GCP), with a strong focus on generating business value through data-driven insights."
 };
 
 export const MainTecnologies = {

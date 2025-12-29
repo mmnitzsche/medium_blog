@@ -8,6 +8,14 @@ import { LanguageAtom } from "@/utils/atom";
 import { extractFirstStrongContent } from "@/utils/ExtractTitle";
 import { WarningMediumContent } from "@/data/BlogGeneralStaticData";
 
+// New components and utils
+import CategoryContainer from "../Projects/Category/CategoryContainer";
+import ImageFormater from "../Projects/MediaFormater/ImageFormater";
+import ContentContainer from "../Projects/Content/ContentContainer";
+import PostTitleContainer from "../Projects/PostTitle/PostTitleContainer";
+import { extractLinksFromContent } from "@/utils/ExtractLinksFromContent";
+import LinkContainer from "../LinksComponent/LinkContainer";
+
 interface Props {
     Posts: any;
     Component: React.ReactNode;
@@ -20,10 +28,11 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
 
 
     const post = Posts[Index] || {};
-    const { link: Link, title: Title, pubDate: PostDate, 'content:encoded': Content } = post;
+    const { link: Link, title: Title, pubDate: PostDate, 'content:encoded': Content, categories: Categories } = post;
 
     const contetByLanguage = extractContentByLanguage(Content, SelectLang);
     const extractLangueTitle = extractFirstStrongContent(Content, contetByLanguage, Title, SelectLang);
+    const PostLinks = extractLinksFromContent(Content);
 
     const handleClose = (event: React.MouseEvent) => {
         if ((event.target as HTMLElement).id === "modal-overlay") {
@@ -62,7 +71,7 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
                     onClick={handleClose}
                 >
                     <div
-                        className="bg-white w-full max-w-3xl h-[90vh] p-6 rounded-lg shadow-lg overflow-y-auto relative"
+                        className="bg-white w-full max-w-6xl h-fit max-h-[90vh] p-8 rounded-lg shadow-lg overflow-y-auto relative"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <button
@@ -71,37 +80,42 @@ export function PostDialog({ Posts, Component, Index = 0 }: Props) {
                         >
                             <X />
                         </button>
-                        <div className="flex items-center">
-                            {Link && (
-                                <PostDialogLink
-                                    Icon={<ExternalLink size={18} />}
-                                    Link={Link}
-                                />
-                            )}
-                            <h2 className="text-xl font-semibold">{extractLangueTitle}</h2>
-                        </div>
-                        <div className="text-gray-500 text-sm mt-2">
+                        
+                        <div className="mb-4">
+                            <PostTitleContainer Title={extractLangueTitle} />
                             <PublishedContainer PublishedDate={PostDate} />
                         </div>
 
-                        <div className="w-full min:h-16 h-fit bg-red-300 border-l-4 border-red-400 sm:text-xs  text-white rounded p-1 flex items-center space-x-1 cursor-default">
-                            <div>
-                                <Info size={18} />
+                        <LinkContainer linkJson={PostLinks} />
+
+                        <div className="flex flex-col lg:flex-row gap-8 mb-8 items-start">
+                            <div className="flex-1 w-full">
+                                <ImageFormater Media={Content} />
                             </div>
-                            <div>
-                                {WarningMediumContent[SelectLang]}
-                            </div>
-                            <div>
-                                <PostDialogLink
-                                    Icon={<ExternalLink className="text-white hover:text-black" size={18} />}
-                                    Link={Link}
-                                />
+                            <div className="flex-1 flex flex-col h-full justify-between">
+                                <a 
+                                    href={Link} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="block group hover:opacity-100 transition-opacity"
+                                >
+                                    <ContentContainer Content={contetByLanguage} />
+                                    <span className="text-primary font-semibold flex items-center gap-2 mt-4 hover:underline">
+                                        {SelectLang === 'pt' ? 'Ler o artigo completo no Medium' : 'Read the full article on Medium'}
+                                        <ExternalLink size={16} />
+                                    </span>
+                                </a>
                             </div>
                         </div>
-                        <div
-                            className="text-gray-700 mt-4 justify-center"
-                            dangerouslySetInnerHTML={{ __html: contetByLanguage }}
-                        />
+
+                        <div className="mb-8">
+                            <div className="flex flex-wrap gap-2">
+                                {Array.isArray(Categories) && Categories.map((category: any) => (
+                                    <CategoryContainer key={category} Category={category} />
+                                ))}
+                            </div>
+                        </div>
+                    
                     </div>
                 </div>
             )}

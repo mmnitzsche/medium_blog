@@ -17,12 +17,12 @@ export default function ImageFormater({ Media }: ImageFormaterProps) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col items-center justify-center w-full aspect-video overflow-hidden rounded-xl border border-gray-100">
       {allGifs.length > 1 ? (
         <GifCarousel gifs={allGifs} />
       ) : (
         <img
-          className="rounded-lg w-full h-auto object-contain"
+          className="w-full h-full object-cover"
           src={firstGif}
           alt="GIF"
         />
@@ -62,11 +62,11 @@ function GifCarousel({ gifs }: GifCarouselProps) {
   return (
     <div className="relative w-full">
       {/* imagem */}
-      <div className="overflow-hidden rounded-m w-full">
+      <div className="overflow-hidden w-full aspect-video">
         <img
           src={gifs[currentIndex]}
           alt={`GIF ${currentIndex + 1}`}
-          className="w-full h-auto object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
 
