@@ -51,8 +51,8 @@ export default function PlayGroundInput() {
                         onMouseLeave={() => setShowTooltip(false)}
                         className='relative mr-2'
                     >
-                        <CircleHelp className='text-slate-400 cursor-pointer' size={16} />
-                        <PlaygroundInfo visible={showTooltip} />
+                        {/* <CircleHelp className='text-slate-400 cursor-pointer' size={16} />
+                        <PlaygroundInfo visible={showTooltip} /> */}
                     </div>
                     
                     <span className='text-slate-500 text-sm'>https://medium.com/@</span>

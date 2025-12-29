@@ -1,4 +1,9 @@
 export function extractLinksFromContent(content) {
+  // Verifica se o conteúdo é uma string válida
+  if (!content || typeof content !== 'string') {
+    return {}; // Retorna um objeto vazio se o conteúdo for inválido
+  }
+
   // Expressão regular para capturar o conteúdo após "links::"
   const lookbehind = /(?<=links::)([\s\S]*)/;
 

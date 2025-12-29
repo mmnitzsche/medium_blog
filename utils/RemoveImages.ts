@@ -1,3 +1,4 @@
-export  const removeImages = (content: string) => {
-    return content.replace(/<img[^>]*>/g, ''); // Remove todas as tags <img>
-  };
+export const removeImages = (content: string) => {
+    if (!content || typeof content !== 'string') return '';
+    return content.replace(/<img[^>]*>/g, '');
+};
