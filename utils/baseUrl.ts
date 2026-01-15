@@ -15,7 +15,7 @@ function DevelopmentState() {
         }
     } else {
         // Produção
-        return "https://blog-mmnitzsches-projects.vercel.app/api/";
+        return "https://medium-blog-orcin-nu.vercel.app/api/";
     }
 }
 
