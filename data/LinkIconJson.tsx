@@ -3,6 +3,7 @@ import ImdbLogo from "../app/components/Hero/Images/ImdbLogo";
 import MediumLogo from "../app/components/Hero/Images/MediumLogo";
 import LeetCodeLogo from "@/app/components/Hero/Images/LeetCode";
 import CodeWarsLogo from "@/app/components/Hero/Images/CodeWars";
+import EmotracingLogo from "../app/components/Hero/Images/EmotracingLogo";
 
 // Defina explicitamente o tipo do array Links
 export const LinksJson: {
@@ -44,6 +45,13 @@ export const LinksJson: {
             href: "https://www.codewars.com/users/mateusnit/completed_solutions", // Link válido
             icon: <>
             <CodeWarsLogo/>
+            </>
+        },
+        {
+            id: 7,
+            href: "https://emotracing.vercel.app/", // Link válido
+            icon: <>
+            <EmotracingLogo/>
             </>
         },
 

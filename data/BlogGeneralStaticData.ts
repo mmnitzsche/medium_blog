@@ -77,8 +77,8 @@ I used technologies such as Python, ClickUp, Google Sheets, Power BI, Data Studi
 ];
 
 export const profession = {
-    pt: "Analista de Dados",
-    en: "Data Analyst "
+    pt: "Analista de Dados • Analista de Integração",
+    en: "Data Analyst • Integration Analyst"
 };
 
 

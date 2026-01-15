@@ -1,13 +1,12 @@
 import { MediumPlayGroundUserName } from '@/utils/atom';
 import { useAtom } from 'jotai';
-import { CircleHelp, Copy, ClipboardPaste, Check } from 'lucide-react';
+import { Copy, ClipboardPaste, Check } from 'lucide-react';
 import React, { useState } from 'react';
-import PlaygroundInfo from './PlaygroundInfo';
 import Github from './BadgeGithub';
+import PlaygroundHelp from './PlaygroundHelp';
 
 export default function PlayGroundInput() {
     const [user, setUser] = useAtom(MediumPlayGroundUserName);
-    const [showTooltip, setShowTooltip] = useState(false);
     const [copied, setCopied] = useState(false);
 
     const handleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,15 +45,6 @@ export default function PlayGroundInput() {
                 <div
                     className='flex items-center bg-gray-100 rounded-lg px-3 py-2 border border-gray-200'
                 >
-                    <div
-                        onMouseEnter={() => setShowTooltip(true)}
-                        onMouseLeave={() => setShowTooltip(false)}
-                        className='relative mr-2'
-                    >
-                        {/* <CircleHelp className='text-slate-400 cursor-pointer' size={16} />
-                        <PlaygroundInfo visible={showTooltip} /> */}
-                    </div>
-                    
                     <span className='text-slate-500 text-sm'>https://medium.com/@</span>
                     
                     <input
@@ -82,6 +72,7 @@ export default function PlayGroundInput() {
                         </button>
                     </div>
                 </div>
+                <PlaygroundHelp />
             </div>
             <Github />
         </div>
