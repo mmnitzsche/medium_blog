@@ -97,7 +97,7 @@ export default function RagGemini() {
   const [input, setInput] = useState('');
   const [docs, setDocs] = useState([
     `Mateus Nitzsche – Data Analyst / Analista de Dados\nRio de Janeiro, Brasil | mmnitzsche@gmail.com | +55 (21) 98230-3111 (WhatsApp) | linkedin.com/in/mateusnit/ |Portifólio| GitHub | Medium |IMDB |LeetCode |CodeWars`,
-    `Resumo\nAnalista de Dados com 4 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Experiência em Power BI, Python, APIs, Databricks, Azure, GCP.`,
+    `Resumo\nAnalista de Dados com 6 anos de experiência em soluções orientadas ao negócio, com forte atuação em automação, ETL, visualização e integração de dados. Experiência em Power BI, Python, APIs, Databricks, Azure, GCP.`,
     `Projetos – Integração de Sistemas: Integra dados de múltiplas plataformas via Power Query em um dashboard interativo.`,
     `Projetos – Dashboard de Atendimento ao Cliente (CX): Redução de mais de 50% no tempo de acionamento do time. [Python, Power Bi, Ollama (LLM), HTML/CSS]`,
     `Projetos – Gerador de blog automatico com Next.js + RSS/XML integrado ao Medium. [Next.js, Tailwind CSS, React, Vercel, Prisma, Axios]`,
