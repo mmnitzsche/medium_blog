@@ -18,11 +18,38 @@ export const ExperienceTitle = {
 export const jobs = [
     {
         id: 1,
+        companyName: "Dr.Online",
+        companySite: "https://dronline.com/",
+        startPeriod: "2026",
+        endPeriod: "Present",
+        jobRole: "BI & Analytics Engineer",
+        location: "Portugal - Remote",
+        description: {
+            pt: `Atuando como BI & Analytics Engineer, focado em engenharia de dados e análise para suporte à decisão.`,
+            en: `Acting as BI & Analytics Engineer, focused on data engineering and analytics to support decision making.`
+        }
+    },
+    {
+        id: 2,
+        companyName: "Looqbox",
+        companySite: "https://looqbox.com/",
+        startPeriod: "2025",
+        endPeriod: "2025",
+        jobRole: "Analista de Dados & Desenvolvedor Python",
+        location: "São Paulo - Remote",
+        description: {
+            pt: `Desenvolvimento de soluções de dados e automações utilizando Python para otimização de processos.`,
+            en: `Development of data solutions and automations using Python for process optimization.`
+        }
+    },
+    {
+        id: 3,
         companyName: "Mg Info - DataDriven",
         companySite: "https://mginfo.com.br/",
         startPeriod: "2022",
         endPeriod: "2025",
         jobRole: "Senior Data Analyst",
+        location: "Minas Gerais - Remote",
         description: {
             pt: `Desenvolvo relatórios em Power BI de alto padrão para empresas como Anglo American e WestRock, proporcionando análises visuais avançadas e tomadas de decisão mais ágeis. Atuo na solução de processos de automação e scraping utilizando Python, otimizando fluxos de trabalho e coleta de informações.
 
@@ -37,12 +64,13 @@ Additionally, I am responsible for creating and maintaining ETL and Data Pipelin
         }
     },
     {
-        id: 2,
+        id: 4,
         companyName: "Roda Conveniência",
         companySite: "https://rodaconveniencia.com.br/",
         startPeriod: "2021",
         endPeriod: "2022",
         jobRole: "Data Analyst",
+        location: "Rio de Janeiro - Hybrid",
         description: {
             pt: `Desenvolvendo soluções de negócios relacionados a fraude (roubos/furtos) do mini mercado.
 Análise de dados consumidas da API/ banco de dados para ter projetados prejuízo, lucro e eficácia de decisões tomadas a partir de dados.
@@ -55,12 +83,13 @@ Creation of automated spreadsheets and forms for employee use, integrated with D
         }
     },
     {
-        id: 3,
+        id: 5,
         companyName: "Combo Studio",
         companySite: "https://www.combostudio.com.br/",
         startPeriod: "2019",
         endPeriod: "2021",
         jobRole: "Data Analyst & Senior Production Coordinator",
+        location: "Rio de Janeiro - Hybrid",
         description: {
             pt: `Responsável por coordenar todas as produções do estúdio e desenhar fluxos de processos e automações, dashboard e reports para os clientes e equipe usando Power Bi, Python e das plataformas usadas.
 

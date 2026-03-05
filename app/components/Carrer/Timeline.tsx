@@ -7,6 +7,7 @@ interface Job {
     startPeriod: string;
     endPeriod: string;
     jobRole: string;
+    location: string;
     description: {
         pt: string;
         en: string;
@@ -44,9 +45,11 @@ const TimelineItem: React.FC<{ job: Job; selectLang: 'pt' | 'en'; isLast: boolea
 
             {/* Job Content */}
             <div className="pb-16 pl-6">
-                {/* Period - Same side now */}
-                <div className="mb-1 text-gray-400 text-sm font-normal">
-                     {job.startPeriod === job.endPeriod ? job.startPeriod : `${job.startPeriod}-${job.endPeriod}`}
+                {/* Period & Location - Same hierarchy */}
+                <div className="mb-1 text-gray-400 text-sm font-normal flex items-center gap-2">
+                     <span>{job.startPeriod === job.endPeriod ? job.startPeriod : `${job.startPeriod}-${job.endPeriod}`}</span>
+                     <span className="w-1 h-1 bg-gray-300 rounded-full" />
+                     <span>{job.location}</span>
                 </div>
 
                 {/* Title & Company */}
